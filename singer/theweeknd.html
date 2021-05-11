@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>the weeknd</title>
+     
+        <link rel="stylesheet" href="../_css/animate.min.css">
+    <link href="../_css/site.css" rel="stylesheet">
+    <link href="../_css/index.css" rel="stylesheet">
+    <link href="../_css/jquery-ui.min.css" rel="stylesheet">
+    <script src="../_js/jquery.min.js"></script>
+    <script src="../_js/jquery-ui.min.js"></script>
+    <script src="../_js/jquery.lettering.js"></script>
+    <script src="../_js/jquery.textillate.js"></script>
+    <script src="../_js/jQueryRotate.2.1.js"></script>
+    <script src="../_js/index.js"></script>
+     <script src="../js/link2.js"></script>
+      <link rel="stylesheet" href="../css/nav.css">
+    <script src="../js/nav.js"></script>
+    <script src="../_js/build/mediaelement-and-player.min.js"></script>
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" href="../css/mediaelementplayer.min.css">
+<link rel="stylesheet" href="../css/music.css">
+<script src="../_js/music.js"></script>
+<link rel="stylesheet" href="../css/music2.css">
+<!--<script src="../js/music2.js"></script>-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+<script src="../js/top5_2.js"></script>
+<!--<script type="text/javascript" src="../js/music2.js" charset="UTF-8"></script>-->
+</head>
+
+<style>
+    #context{
+        color: white;
+    margin-top: 160px;
+    margin-left: 350px;
+height: 1800px;
+    width:1080px;
+    }
+    #title{
+           width: 380px; 
+  
+    float: left;
+    margin-right: 500px;
+   margin-top: 120px;
+        display: none;
+    }
+    #img1,#img1 img{
+       position: absolute;
+            margin-top: 40px;
+width: 333px;
+        height: 500px;
+    }
+    #img2 img{
+           position: absolute;
+  width: 219px;
+        height: 314px;
+      margin-top: 280px;
+    margin-left: 500px;
+        display: none;
+    }
+    #img3 img{
+          position: absolute;
+       height: 314px;
+      margin-top: 280px;
+          margin-top: 280px;
+/*    margin-left: 500px;*/
+       margin-left: 750px;
+        opacity: 0;
+    }
+    #img4 img{
+        position: absolute;
+               height: 314px;
+      margin-top: 320px; 
+        margin-left: 500px;
+    }
+    .art{
+     width: 400px;
+    font-family: 微軟正黑體;
+/*        margin-top: 200px;*/
+/*        float: left*/
+    }
+    #paragraph2{
+        margin-top: 50px;
+    }
+    #title2{
+        margin-top: 300px;
+  opacity: 0;
+    }
+    #newlove{
+        position: fixed;
+    top: 600px;
+        left: 1000px;
+        display: none;
+    }
+    #title3{
+        margin-top: 300px;
+  opacity: 0;
+    }
+    #title4{
+        margin-top: 300px;
+   
+          opacity: 0;
+    }
+    #paragraph5{
+              height: 500px;
+    }
+    #spotplayer1{
+        width: 250px;
+        height: 250px;
+        position: fixed;
+        top: 400px;
+        right: 100px;
+        display: none;
+    }
+    </style>
+<!--  <script src="../js/music2.js"></script>-->
+    <script>
+$(function()
+{
+    var isplayed=false;
+    var newrules=false;
+    var dont=false;
+    setInterval(hhh,1000);
+    function hhh(){
+//        console.log(isplayed);
+    }
+    $(window).scroll(function() {
+                    var scrollVal = $(this).scrollTop();
+//                    console.log(scrollVal);
+//          console.log(isplayed);
+                    if (scrollVal > 400&&scrollVal<600&&isplayed==false) {
+                     
+                        isplayed=true;
+                     playPause();
+             
+
+                    }else  if(scrollVal>1100&&newrules==false)
+            {
+                selectTrack(1);
+                    ispalyed=true;
+                 newrules=true;
+            }
+       
+        
+                });
+    var playerTrack = $("#player-track"), bgArtwork = $('#bg-artwork'), bgArtworkUrl, albumName = $('#album-name'), trackName = $('#track-name'), albumArt = $('#album-art'), sArea = $('#s-area'), seekBar = $('#seek-bar'), trackTime = $('#track-time'), insTime = $('#ins-time'), sHover = $('#s-hover'), playPauseButton = $("#play-pause-button"),  i = playPauseButton.find('i'), tProgress = $('#current-time'), tTime = $('#track-length'), seekT, seekLoc, seekBarPos, cM, ctMinutes, ctSeconds, curMinutes, curSeconds, durMinutes, durSeconds, playProgress, bTime, nTime = 0, buffInterval = null, tFlag = false, albums = ['Look At Me','Sad!'], trackNames = ['XXXtentacion','XXXtentacion'], albumArtworks = ['_1','_2'], trackUrl = [], playPreviousTrackButton = $('#play-previous'), playNextTrackButton = $('#play-next'), currIndex = -1;
+
+    function playPause()
+    {
+        setTimeout(function()
+        {
+            if(audio.paused)
+            {
+                playerTrack.addClass('active');
+                albumArt.addClass('active');
+                checkBuffering();
+                i.attr('class','fas fa-pause');
+                audio.play();
+            }
+            else
+            {
+                playerTrack.removeClass('active');
+                albumArt.removeClass('active');
+                clearInterval(buffInterval);
+                albumArt.removeClass('buffering');
+                i.attr('class','fas fa-play');
+                audio.pause();
+            }
+        },300);
+    }
+
+    	
+	function showHover(event)
+	{
+		seekBarPos = sArea.offset(); 
+		seekT = event.clientX - seekBarPos.left;
+		seekLoc = audio.duration * (seekT / sArea.outerWidth());
+		
+		sHover.width(seekT);
+		
+		cM = seekLoc / 60;
+		
+		ctMinutes = Math.floor(cM);
+		ctSeconds = Math.floor(seekLoc - ctMinutes * 60);
+		
+		if( (ctMinutes < 0) || (ctSeconds < 0) )
+			return;
+		
+        if( (ctMinutes < 0) || (ctSeconds < 0) )
+			return;
+		
+		if(ctMinutes < 10)
+			ctMinutes = '0'+ctMinutes;
+		if(ctSeconds < 10)
+			ctSeconds = '0'+ctSeconds;
+        
+        if( isNaN(ctMinutes) || isNaN(ctSeconds) )
+            insTime.text('--:--');
+        else
+		    insTime.text(ctMinutes+':'+ctSeconds);
+            
+		insTime.css({'left':seekT,'margin-left':'-21px'}).fadeIn(0);
+		
+	}
+
+    function hideHover()
+	{
+        sHover.width(0);
+        insTime.text('00:00').css({'left':'0px','margin-left':'0px'}).fadeOut(0);		
+    }
+    
+    function playFromClickedPos()
+    {
+        audio.currentTime = seekLoc;
+		seekBar.width(seekT);
+		hideHover();
+    }
+
+    function updateCurrTime()
+	{
+        nTime = new Date();
+        nTime = nTime.getTime();
+
+        if( !tFlag )
+        {
+            tFlag = true;
+            trackTime.addClass('active');
+        }
+
+		curMinutes = Math.floor(audio.currentTime / 60);
+		curSeconds = Math.floor(audio.currentTime - curMinutes * 60);
+		
+		durMinutes = Math.floor(audio.duration / 60);
+		durSeconds = Math.floor(audio.duration - durMinutes * 60);
+		
+		playProgress = (audio.currentTime / audio.duration) * 100;
+		
+		if(curMinutes < 10)
+			curMinutes = '0'+curMinutes;
+		if(curSeconds < 10)
+			curSeconds = '0'+curSeconds;
+		
+		if(durMinutes < 10)
+			durMinutes = '0'+durMinutes;
+		if(durSeconds < 10)
+			durSeconds = '0'+durSeconds;
+        
+        if( isNaN(curMinutes) || isNaN(curSeconds) )
+            tProgress.text('00:00');
+        else
+		    tProgress.text(curMinutes+':'+curSeconds);
+        
+        if( isNaN(durMinutes) || isNaN(durSeconds) )
+            tTime.text('00:00');
+        else
+		    tTime.text(durMinutes+':'+durSeconds);
+        
+        if( isNaN(curMinutes) || isNaN(curSeconds) || isNaN(durMinutes) || isNaN(durSeconds) )
+            trackTime.removeClass('active');
+        else
+            trackTime.addClass('active');
+
+        
+		seekBar.width(playProgress+'%');
+		
+		if( playProgress == 100 )
+		{
+			i.attr('class','fa fa-play');
+			seekBar.width(0);
+            tProgress.text('00:00');
+            albumArt.removeClass('buffering').removeClass('active');
+            clearInterval(buffInterval);
+		}
+    }
+    
+    function checkBuffering()
+    {
+        clearInterval(buffInterval);
+        buffInterval = setInterval(function()
+        { 
+            if( (nTime == 0) || (bTime - nTime) > 1000  )
+                albumArt.addClass('buffering');
+            else
+                albumArt.removeClass('buffering');
+
+            bTime = new Date();
+            bTime = bTime.getTime();
+
+        },100);
+    }
+
+    function selectTrack(flag)
+    {
+        if( flag == 0 || flag == 1 )
+            ++currIndex;
+        else
+            --currIndex;
+
+        if( (currIndex > -1) && (currIndex < albumArtworks.length) )
+        {
+            if( flag == 0 )
+                i.attr('class','fa fa-play');
+            else
+            {
+                albumArt.removeClass('buffering');
+                i.attr('class','fa fa-pause');
+            }
+
+            seekBar.width(0);
+            trackTime.removeClass('active');
+            tProgress.text('00:00');
+            tTime.text('00:00');
+
+            currAlbum = albums[currIndex];
+            currTrackName = trackNames[currIndex];
+            currArtwork = albumArtworks[currIndex];
+
+            audio.src = trackUrl[currIndex];
+            
+            nTime = 0;
+            bTime = new Date();
+            bTime = bTime.getTime();
+
+            if(flag != 0)
+            {
+                audio.play();
+                playerTrack.addClass('active');
+                albumArt.addClass('active');
+            
+                clearInterval(buffInterval);
+                checkBuffering();
+            }
+
+            albumName.text(currAlbum);
+            trackName.text(currTrackName);
+            albumArt.find('img.active').removeClass('active');
+            $('#'+currArtwork).addClass('active');
+            
+            bgArtworkUrl = $('#'+currArtwork).attr('src');
+
+            bgArtwork.css({'background-image':'url('+bgArtworkUrl+')'});
+        }
+        else
+        {
+            if( flag == 0 || flag == 1 )
+                --currIndex;
+            else
+                ++currIndex;
+        }
+    }
+
+    function initPlayer()
+	{	
+        audio = new Audio();
+
+		selectTrack(0);
+		
+		audio.loop = false;
+		
+		playPauseButton.on('click',playPause);
+		
+		sArea.mousemove(function(event){ showHover(event); });
+		
+        sArea.mouseout(hideHover);
+        
+        sArea.on('click',playFromClickedPos);
+		
+        $(audio).on('timeupdate',updateCurrTime);
+
+        playPreviousTrackButton.on('click',function(){ selectTrack(-1);} );
+        playNextTrackButton.on('click',function(){ selectTrack(1);});
+	}
+    initPlayer();
+});
+          var isplayed=false;
+              var song=false;
+                var song2=false;
+                var song3=false;
+    $(document).ready(function(){
+//             gay();
+       $('#img1').animate({marginLeft:500},1500); 
+        
+        $('#title').fadeIn(3000);
+        
+         $('#title1').css('opacity','0');
+      
+    });
+          $(window).scroll(function() {
+              
+                    var scrollVal = $(this).scrollTop();
+                    console.log(song);
+                    if (scrollVal > 400&&song==false) 
+                    {
+                      song=true;
+                     
+                         $('#spotplayer1').fadeIn(2000);
+                        
+                     $('#newlove').fadeIn(1000);
+                        $('#img2 img').fadeIn(2000);
+                               $('#title2').animate({opacity:1},1500); 
+
+                    }
+              if (scrollVal < 240)
+                                      {
+               }
+              if(scrollVal>900&&song2==false)
+                {
+                song2=true; 
+                    $('#spotplayer1').attr('src','https://open.spotify.com/embed/track/0VjIjW4GlUZAMYd2vXMi3b');
+              
+                    $('#title3').animate({opacity:1},1500); 
+                 $('#img3').children().animate({marginLeft:500,opacity:1},1500);
+                  
+ 
+                }                                 
+              if(scrollVal>1450&&song3==false)
+                  {
+                   
+                  }
+                  
+                });
+        //----------------------------------------------//
+       
+      
+        audio.init();
+        //----------------------------------------------//
+    </script>
+<body>
+   
+     <div id="logo">
+       
+            <a href="../index.html"> <img src="../_image/musicicon.png" id="icon"></a>
+        <h1 id="icontext"></h1>
+    </div>
+    <div id="header">
+
+        <div id="top5_singer_title">
+            <h2 style="font-size: 30px">today's top 5</h2>
+        </div>
+
+        <div id="logo">
+            <img src="">
+            <h1 id="icontext"></h1>
+
+        </div>
+        <div id="top5_singer">
+            <div id="top1" class="topsin">
+
+                <a href="" target="_blank"><img src="../_image/singer/drake.jpg" alt="" class="singer"></a>
+                <div id="name" class="singername">Drake</div>
+            </div>
+            <div id="top2" class="topsin">
+               <a href="" target="_blank"><img src="../_image/singer/theweeknd.jpg" alt="" class="singer"></a> 
+                <div id="name2" class="singername">The Weeknd</div>
+            </div>
+            <div id="top3" class="topsin">
+               <a href="" target="_blank"><img src="../_image/singer/jb.jpg" alt="" class="singer"></a> 
+                <div id="name3" class="singername">Justin Bieber</div>
+            </div>
+            <div id="top4" class="topsin">
+              <a href="" target="_blank"> <img src="../_image/singer/dualipa.jpg" alt="" class="singer"></a> 
+                <div id="name4" class="singername">Dua Lipa</div>
+            </div>
+
+            <div id="top5" class="topsin">
+                  <a href="" target="_blank"><img src="../_image/singer/ariana.jpg" alt="" class="singer"></a> 
+                <div id="name5" class="singername">Ariana Grande</div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+     <div id="nav">
+        <div id="top10" class="navbar">
+       <div id="home">      <a href="../index.html" >Home</a></div>
+  
+        
+    
+     <div id="toplist">
+        
+           <div id="tit">    <p class="navtext" >Top 10</p>  <i class="fas fa-sort-down" id="sortdown"></i></div><div id="list"><div id="listsingle">   <a href="../top10single.html"  class="navtext_" >Single</a></div>
+                <div id="listsingle">
+                      <a href="../top10album.html" class="navtext_">Album</a>
+                </div></div> 
+                  
+         
+            
+
+            
+        </div>
+              </div>
+                   </div>
+    <div id="context" style="color: white">
+       
+        <div id="artmain">
+<!--
+           <div id="title"><h1>gay</h1></div>
+           <div id="author"><h2>韓國瑜</h2></div>
+-->
+           <div id="img1"><img src="weeknd/1.jpg" alt=""></div>
+           <div id="title"><h1 style="color: #ffdedd;font-size: 30px;font-family: 微軟正黑體">從不需要任何聚光燈的超級巨星 The Weeknd</h1></div>
+            <div class="art" id="paragraph1 "style="">
+               <p> &nbsp;&nbsp;&nbsp;&nbsp;1990年出生的The Weeknd本名叫作Abel Tesfaye，是一位來自加拿大的歌手及製作人，The Weeknd的才華歸功於他童年時接受諸多不同曲風的薰陶，不管是嘻哈、indie還是龐克搖滾，他都全部吸收。</p>
+            </div>
+            <div class="art" id="paragraph2">
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;The Weeknd在高中時就輟學，並專心創作音樂，他在2010年時以「The Weeknd」的名義將自己的作品上傳至Youtube，並獲得廣大迴響，他在2010到2012年間累積了不少音樂作品，一直到2013年終於發行首張專輯《Kiss Land》，在他把自己的作品陸續上傳至網路的這段期間，The Weeknd也一直在做小型的巡迴演出，他所到之處，必定引起不小的騷動。
+</p>
+             
+            </div>
+           <div id="img2"><img src="weeknd/2.jpg" alt=""></div>
+             <div id="title2"><h1 style="color: #ffdedd;font-size: 30px;font-family: 微軟正黑體">事業開始及混音帶</h1></div>
+              <div class="art" id="paragraph3">
+             <p> &nbsp;&nbsp;&nbsp;&nbsp;Weeknd在2010年12月上傳了「What You Need」、「Loft Music」、以及「The Morning」至YouTube，並署名「Weeknd」。歌曲通過口耳相傳在網路上被注意到了，包括Drake在以發表歌曲為特色的部落格發布的文章。Drake對the Weeknd產生了興趣。</p>
+             <br>
+             <br>    
+     <p> &nbsp;&nbsp;&nbsp;&nbsp;2011年7月，Weeknd開始踏上巡迴演唱的道路，他和Drake共同合作並且以特別嘉賓的身分於同年7月31日出席OVO音樂節。Weeknd在2011年釋出的三個混音帶被統稱為「氣球三部曲」，並都備受好評，也增長了他的名氣。</p>
+            </div>
+             <div id="img3"><img src="weeknd/3.jpg" alt=""></div>
+            <div id="title3"><h1 style="color: #ffdedd;font-size: 30px;font-family: 微軟正黑體">復古爆紅專輯《After Hours》</h1></div>
+            <div class="art" id="paragraph4">
+                <p> &nbsp;&nbsp;&nbsp;&nbsp;2019年11月。The Weeknd發布了單曲《Blinding Lights》，此單曲一出馬上成為Billborad第一名。2020年3月20日，釋出《After Hours》專輯，成為2020年最火紅的專輯之一，也是The Weeknd的最高峰。</p>
+            </div>
+          
+      
+            </div>
+           
+        <iframe src="https://open.spotify.com/embed/track/7MXVkk9YMctZqd1Srtv4MB" width="300" height="280" frameborder="0" allowtransparency="true" allow="encrypted-media" id="spotplayer1"></iframe>
+<!--
+            <div class="app-cover" id="newlove">
+       
+        <div id="player">
+            <div id="player-track">
+                <div id="album-name"></div>
+                <div id="track-name"></div>
+                <div id="track-time">
+                    <div id="current-time"></div>
+                    <div id="track-length"></div>
+                </div>
+                <div id="s-area">
+                    <div id="ins-time"></div>
+                    <div id="s-hover"></div>
+                    <div id="seek-bar"></div>
+                </div>
+                </div>
+                <div id="player-content">
+                <div id="album-art">
+                    <img src="xxx/2.jpg" class="active" id="_1">
+                    <img src="xxx/sad.jpg" id="_2">
+                                     
+                    <div id="buffer-box">讀取中 ...</div>
+                </div>
+               <div id="player-controls">
+                    <div class="control">
+                        <div class="button" id="play-previous">
+                            <i class="fas fa-backward"></i>
+                        </div>
+                    </div>
+                    <div class="control">
+                        <div class="button" id="play-pause-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="control">
+                        <div class="button" id="play-next">
+                            <i class="fas fa-forward"></i>
+                        </div>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+        
+     </div>
+-->
+     </div>
+</body>
+
+</html>

@@ -1,0 +1,757 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>buylist</title>
+
+    <style>
+        body {
+            height: 650px;
+        }
+
+        .singername {
+            display: none;
+        }
+
+        .navbar {
+            color: #ffffff;
+            margin-top: 100px;
+            width: 100%;
+            font-size: 25px;
+            /*           margin-left: 150px;*/
+        }
+
+
+
+        h2 {
+            font-size: 30px;
+        }
+
+        #introsinger {
+            width: 250px;
+            height: 250px;
+            display: none;
+
+            position: absolute;
+        }
+
+        #intro {
+            font-size: 20px;
+            float: right;
+        }
+
+        #introname {
+            font-size: 20px;
+            position: absolute;
+            margin-top: 285px;
+        }
+
+        #main {
+            color: wheat;
+            margin-top: 200px;
+        }
+
+        .art {
+            display: none;
+            width: 500px;
+            font-family: 微軟正黑體;
+        }
+
+        #introlink {
+            position: absolute;
+            top: 400px;
+            margin-left: 400px;
+            color: cornflowerblue;
+        }
+
+        #todaysingle {
+            color: white;
+            margin-top: 120px;
+            margin-left: 500px;
+            height: 30px;
+            position: absolute;
+            top: 400px;
+        }
+
+        #single {
+            font-size: 20px;
+            float: right;
+            margin-right: 80px;
+
+        }
+
+        .line {
+
+            border-top: 1px #1c1c1c solid;
+            color: white;
+            width: 1000px;
+            position: absolute;
+            margin-left: 300px;
+        }
+
+        #singleimg {
+            width: 250px;
+            height: 250px;
+            position: absolute;
+            right: 443px;
+        }
+
+
+        #singlename {
+            margin-left: 300PX;
+            margin-top: 50px
+        }
+
+        #singleartistname {
+            margin-left: 300PX;
+        }
+
+        .streamicon {
+            width: 40;
+            height: 40;
+            border-radius: 20px;
+        }
+
+        #linkicon {
+            width: 40;
+            height: 40;
+            cursor: pointer;
+        }
+
+        #musiclink {
+            height: 50px;
+            width: auto;
+            margin-top: 25px;
+            position: absolute;
+            left: 300px;
+            height: auto;
+
+        }
+
+        #todaysablum {
+            position: absolute;
+            top: 850px;
+            left: 500px;
+            color: white;
+        }
+
+        #albumimg {
+            width: 250px;
+            height: 250px;
+            position: absolute;
+            /*                right: 197px;*/
+            right: 358px;
+            top: 10;
+        }
+
+        #album {
+            color: white;
+            /*    float: right;*/
+            width: auto;
+            margin-left: 290px;
+            ;
+            font-size: 20px;
+        }
+
+        #albumname {
+            POSITION: absolute;
+            left: 293;
+            width: 250;
+            top: 30;
+        }
+
+        #introsingle {
+            width: 250px;
+            height: 250px;
+            margin-top: 700px;
+            position: absolute;
+            right: -110;
+            float: right;
+        }
+
+        #singleintro {
+            position: absolute;
+            top: 700px;
+            left: 150px;
+            width: 300px;
+            font-size: 30px;
+        }
+
+        #introsinglename {
+            position: absolute;
+            font-size: 30px;
+            top: 760px;
+            left: 150px;
+        }
+
+        #singlemain {
+            position: absolute;
+            top: 1340px;
+            width: 500px;
+            left: 650px;
+        }
+
+        .singleart {
+            color: wheat;
+            font-family: 微軟正黑體;
+        }
+
+        #singleintrolink {
+            color: cornflowerblue;
+            font-family: 微軟正黑體;
+        }
+
+        #top10 {
+            height: 120px;
+            font-family: poppins;
+
+        }
+
+        #top10 h1 {
+            width: 100px;
+            border-radius: 10px;
+            font-family: poppins;
+            user-select: none;
+        }
+
+        #navsingle {
+            color: wheat;
+            position: absolute;
+            display: none;
+            top: 280px;
+        }
+
+        #navalbum {
+            display: none;
+            color: wheat;
+            /*         opacity: 0;*/
+            position: absolute;
+            top: 320px;
+        }
+
+        .navtext {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-family: sans-serif;
+            /*            float: left;*/
+
+        }
+
+        .navtext_ {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-family: sans-serif;
+            /*            float: left;*/
+
+
+            margin-top: 15px;
+        }
+
+        .navtext a {
+            color: wheat;
+            font-family: sans-serif;
+            text-decoration: none;
+        }
+
+        #toplist {
+
+            font-family: sans-serif;
+            text-decoration: none;
+            margin-top: 20px;
+
+        }
+
+        #home {
+            color: wheat;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            width: 65%;
+            margin: 0 auto;
+        }
+
+        #home a {
+            color: wheat;
+            font-family: sans-serif;
+            text-decoration: none;
+        }
+
+        #tit {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            width: 65%;
+            margin: 0 auto;
+            overflow: hidden;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        #listsingle {
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            width: 55%;
+            margin: 0 30px;
+            float: right;
+        }
+
+        #sortdown {
+            position: absolute;
+            margin-top: -31px;
+            margin-left: 85px;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        #list {
+            overflow: hidden;
+            display: none;
+        }
+
+        .name_ {
+            font-family: sans-serif;
+            font-size: 25px;
+            margin-left: 130px;
+        }
+
+        .price_ {
+            font-family: sans-serif;
+            font-size: 15px;
+            margin-left: 130px;
+        }
+
+        .img_ {
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+
+        .merch {
+            width: 400px;
+            height: 100px;
+            margin-top: 30px;
+
+        }
+
+        #content {
+            max-width: 720px;
+            margin: 150px 0 0 400px;
+            color: white;
+
+        }
+
+        .buybtncontainer {
+            margin-left: 1000px;
+            margin-top: -40;
+            position: fixed;
+            top: 70%;
+        }
+
+        .buybtn {
+            width: 100px;
+            height: 30px;
+            float: right;
+            margin-left: 30px;
+            margin-top: 18px;
+        }
+
+        .remove_ {
+            width: 64px;
+            height: 64px;
+            position: absolute;
+            margin-left: 50px;
+        }
+
+        .gay {
+            color: white;
+            font-family: sans-serif;
+            float: left;
+            font-size: 35px;
+            position: absolute;
+            width: 200px;
+            margin-left: -170px;
+            margin-top: 12px;
+        }
+
+        .totalmoney {
+            color: white;
+            font-family: sans-serif;
+            float: left;
+            position: absolute;
+            margin-left: -50px;
+            font-size: 25px;
+            margin-top: 20px;
+        }
+
+        .remove_ {
+            cursor: pointer;
+
+        }
+
+        .your {
+            margin-top: 20px;
+            margin-left: 10px;
+            width: 100px;
+
+        }
+
+        .adress {
+            color: white;
+            margin-top: -20px;
+        }
+
+        #order {
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            width: 65%;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        #order a {
+            color: white;
+        }
+
+    </style>
+    <link rel="stylesheet" href="_css/animate.min.css">
+    <link href="_css/site.css" rel="stylesheet">
+    <link href="_css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/cart.css">
+    <link href="_css/jquery-ui.min.css" rel="stylesheet">
+    <script src="_js/jquery.min.js"></script>
+    <script src="_js/jquery-ui.min.js"></script>
+    <script src="_js/jquery.lettering.js"></script>
+    <script src="_js/jquery.textillate.js"></script>
+    <script src="_js/jQueryRotate.2.1.js"></script>
+    <script src="_js/index.js"></script>
+    <script src="js/link.js"></script>
+    <!--    <script src="js/cart.js"></script>-->
+    <script src="js/top5.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+
+    <script>
+        isplayed = false;
+
+
+
+
+        var index = 0;
+
+        var buyinfo = {
+            name: [],
+            address: [],
+            phone: [],
+            firstitem: [],
+            year: [],
+            month: [],
+            day: [],
+            index:[],
+            cost: [],
+            itemurl:[]
+        };
+        var list_name = [];
+        var list_price = [];
+        var listimg = [];
+
+        var list_tusername = [];
+        var list_tphone = [];
+        var list_taddress = [];
+        var totalcost = 0;
+        var list_firstitem = [];
+        $(function() {
+//                    localStorage.setItem("info_name", JSON.stringify(buyinfo.name));
+//                    localStorage.setItem("info_address", JSON.stringify(buyinfo.address));
+//                    localStorage.setItem("info_phone", JSON.stringify(buyinfo.phone));
+//                    localStorage.setItem("info_index", JSON.stringify(buyinfo.index));
+//                    localStorage.setItem("info_firstitem", JSON.stringify(buyinfo.firstitem));
+//                    localStorage.setItem("info_year", JSON.stringify(buyinfo.year));
+//                    localStorage.setItem("info_month", JSON.stringify(buyinfo.month));
+//                    localStorage.setItem("info_day", JSON.stringify(buyinfo.day));
+//                     localStorage.setItem("info_index", JSON.stringify(buyinfo.index));
+//                    localStorage.setItem("info_cost", JSON.stringify(buyinfo.cost));
+//                    localStorage.setItem("info_url", JSON.stringify(buyinfo.itemurl));
+//            
+            
+            
+            list_tusername = JSON.parse(localStorage.getItem("li_username"));
+            list_tphone = JSON.parse(localStorage.getItem("li_address"));
+            list_taddress = JSON.parse(localStorage.getItem("li_phone"));
+
+
+
+
+
+            var sum = 0;
+
+
+
+            var local_songname = JSON.parse(localStorage.getItem("st_songname"));
+            var local_price = JSON.parse(localStorage.getItem("st_price"));
+            var local_imgurl = JSON.parse(localStorage.getItem("st_imgurl"));
+
+
+           
+            for (i = 0; i < local_songname.length; i++) {
+            
+                $('#content').append('  <div class="merch"><img src="' + local_imgurl[i] + '" alt="" class="img_"><div class="name_">' + local_songname[i] + '</div><div class="price_">' + local_price[i] + '</div>  <img src="_image/ICON/close.png" alt="" class="remove_"></div>');
+                sum += parseFloat(local_price[i].substring(1));
+
+                $('.totalmoney').html('$' + sum.toFixed(2));
+    
+
+            }
+            $('.remove_').click(function() {
+
+
+           
+                local_songname.pop();
+                local_price.pop();
+                local_imgurl.pop();
+                localStorage.setItem("st_songname", JSON.stringify(local_songname));
+                localStorage.setItem("st_imgurl", JSON.stringify(local_imgurl));
+                localStorage.setItem("st_price", JSON.stringify(local_price));
+                $(this).parent().remove();
+                $('.totalmoney').html('$' + sum.toFixed(2));
+
+            });
+            buyinfo.name = JSON.parse(localStorage.getItem("info_name"));
+            buyinfo.address = JSON.parse(localStorage.getItem("info_address"));
+            buyinfo.phone = JSON.parse(localStorage.getItem("info_phone"));
+            buyinfo.index = JSON.parse(localStorage.getItem("info_index"));
+            buyinfo.firstitem = JSON.parse(localStorage.getItem("info_firstitem"));
+             buyinfo.day = JSON.parse(localStorage.getItem("info_day"));
+       buyinfo.year = JSON.parse(localStorage.getItem("info_year"));
+          buyinfo.month = JSON.parse(localStorage.getItem("info_month"));
+            buyinfo.index=JSON.parse(localStorage.getItem("info_index"));
+            buyinfo.cost=JSON.parse(localStorage.getItem("info_cost"));
+                 buyinfo.itemurl = JSON.parse(localStorage.getItem("info_url"));
+                        index = JSON.parse(localStorage.getItem("code"));
+            $('.buybtn').click(function(evt) {
+
+                evt.preventDefault();
+
+                if ($('#yourname').val() != '' && $('#yourphone').val() != '' && $('#youraddress').val() != '')
+
+                {
+                    for (i = 0; i < local_songname.length; i++) {
+
+                        //                 var list_name = JSON.parse(localStorage.getItem("li_name")); 
+                        //                var list_price = JSON.parse(localStorage.getItem("li_price"));
+                        //     var listimg= JSON.parse(localStorage.getItem("li_img"));
+
+
+
+                        list_name.push(local_songname[i]);
+                                                listimg.push(local_imgurl[i]);
+                        list_price.push(local_price[i]);
+                        //                        localStorage.setItem("li_name", JSON.stringify(list_name[i]));
+                        //                        localStorage.setItem("li_price", JSON.stringify(listimg[i]));
+                        //                        localStorage.setItem("li_price", JSON.stringify(list_price[i]));
+
+
+
+
+
+
+                    }
+                    index++;
+                    var da = new Date();
+                    var y = da.getFullYear();
+                    var m = da.getMonth() + 1;
+                    var d = da.getDate();
+                    totalcost = sum;
+             
+                    buyinfo.name.push($('#yourname').val());
+                    buyinfo.address.push($('#youraddress').val());
+                    buyinfo.phone.push($('#yourphone').val());
+                    buyinfo.firstitem.push(list_name[0]);
+                    buyinfo.year.push(y);
+                    buyinfo.month.push(m);
+                    buyinfo.day.push(d);
+                    buyinfo.index.push(index);
+                    buyinfo.cost.push(totalcost);
+                    buyinfo.itemurl.push(listimg[0]);
+                    localStorage.setItem("info_name", JSON.stringify(buyinfo.name));
+                    localStorage.setItem("info_address", JSON.stringify(buyinfo.address));
+                    localStorage.setItem("info_phone", JSON.stringify(buyinfo.phone));
+                    localStorage.setItem("info_index", JSON.stringify(buyinfo.index));
+                    localStorage.setItem("info_firstitem", JSON.stringify(buyinfo.firstitem));
+                    localStorage.setItem("info_year", JSON.stringify(buyinfo.year));
+                    localStorage.setItem("info_month", JSON.stringify(buyinfo.month));
+                    localStorage.setItem("info_day", JSON.stringify(buyinfo.day));
+                     localStorage.setItem("info_index", JSON.stringify(buyinfo.index));
+                    localStorage.setItem("info_cost", JSON.stringify(buyinfo.cost));
+                    localStorage.setItem("info_url", JSON.stringify(buyinfo.itemurl));
+                  
+                    list_firstitem.push(list_name[0]);
+                    list_tusername.push($('#yourname').val());
+                    list_tphone.push($('#yourphone').val());
+                    list_taddress.push($('#youraddress').val());
+                    localStorage.setItem("lfirstitem", JSON.stringify(list_firstitem));
+                    localStorage.setItem("li_username", JSON.stringify(list_tusername));
+                    localStorage.setItem("li_phone", JSON.stringify(list_tphone));
+                    localStorage.setItem("li_address", JSON.stringify(list_taddress));
+                    localStorage.setItem("li_year", JSON.stringify(y));
+                    localStorage.setItem("li_month", JSON.stringify(m));
+                    localStorage.setItem("li_day", JSON.stringify(d));
+                    localStorage.setItem("code", JSON.stringify(index));
+
+
+
+                    local_songname.pop();
+                    local_price.pop();
+                    local_imgurl.pop();
+                    localStorage.setItem("wholemoney", JSON.stringify(totalcost));
+
+                    localStorage.setItem('imgurll', JSON.stringify(local_imgurl[0]));
+                    localStorage.setItem('usongname', JSON.stringify(local_songname[0]));
+           
+                    $('.merch').each(function() {
+                        $(this).remove();
+                    });
+              $('#yourname').val('');
+                    $('#youraddress').val('');
+                    $('#yourphone').val('');
+                }
+
+
+
+
+
+
+
+
+
+            });
+
+
+
+
+            $('#top10').mouseover(function() {
+                $(this).children().stop();
+                $(this).children('h2').fadeIn(500);
+                $(this).children('h1').animate({
+                    backgroundColor: '#363636'
+                })
+            });
+            $('#top10').mouseout(function() {
+                $(this).children().stop();
+                $(this).children('h1').animate({
+                    backgroundColor: '#000000'
+                })
+                $(this).children('h2').fadeOut(500);
+
+            });
+
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="logo">
+        <a href="index.html"> <img src="_image/musicicon.png" id="icon"></a>
+
+
+        <h1 id="icontext"></h1>
+    </div>
+
+    <div id="header">
+
+        <div id="top5_singer_title">
+            <h2 style="font-size: 30px">today's top 5</h2>
+        </div>
+
+        <div id="logo">
+            <img src="">
+            <h1 id="icontext"></h1>
+
+        </div>
+        <div id="top5_singer" style="user-select:none;">
+            <div id="top1" class="topsin">
+                <a href=""> <img src="_image/singer/drake.jpg" alt="" class="singer"></a>
+
+                <div id="name" class="singername">Drake</div>
+            </div>
+            <div id="top2" class="topsin"><a href="" target="_blank"> <img src="_image/singer/theweeknd.jpg" alt="" class="singer"></a>
+
+                <div id="name2" class="singername">The Weeknd</div>
+            </div>
+            <div id="top3" class="topsin">
+                <a href="" target="_blank"><img src="_image/singer/jb.jpg" alt="" class="singer"></a>
+                <div id="name3" class="singername">Justin Bieber</div>
+            </div>
+            <div id="top4" class="topsin">
+                <a href="singer/dualipa.html" target="_blank"><img src="_image/singer/dualipa.jpg" alt="" class="singer"></a>
+
+                <div id="name4" class="singername">Dua Lipa</div>
+            </div>
+
+            <div id="top5" class="topsin">
+                <a href="" target="_blank"><img src="_image/singer/ariana.jpg" alt="" class="singer"></a>
+                <div id="name5" class="singername">Ariana Grande</div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <div id="nav">
+        <div id="top10" class="navbar">
+            <div id="home"> <a href="index.html">Home</a></div>
+
+
+
+            <div id="toplist">
+
+                <div id="tit">
+                    <p class="navtext">Top 10</p> <i class="fas fa-sort-down" id="sortdown"></i>
+                </div>
+                <div id="list">
+                    <div id="listsingle"> <a href="top10single.html" class="navtext_">Single</a></div>
+                    <div id="listsingle">
+                        <a href="top10album.html" class="navtext_">Album</a>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+            <div id="order" class="navtext_"><a href="adress.html" style="text-decoration: none">Order</a></div>
+        </div>
+
+
+
+
+    </div>
+    <div id="content">
+        <h1 style="font-family: sans-serif">Shop-List</h1>
+
+    </div>
+
+    <form action="">
+
+        <div class="buybtncontainer">
+            <div class="adress">
+
+                <div class="your">姓名<input type=text name=ggg id="yourname"></div>
+                <div class="your">電話<input type=text name=ggg id="yourphone"></div>
+                <div class="your">地址<input type=text name=yougggrname id="youraddress"></div>
+            </div>
+            <p class="gay">總金額:</p>
+            <p class="totalmoney">$0</p>
+
+            <input class="buybtn" type=submit name=ok value="Confirm" onclick="if(confirm('您確定送出嗎?')) return true;else return false">
+        </div>
+    </form>
+
+
+</body>
+
+</html>

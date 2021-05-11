@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dua lipa</title>
+      
+        <link rel="stylesheet" href="../_css/animate.min.css">
+    <link href="../_css/site.css" rel="stylesheet">
+    <link href="../_css/index.css" rel="stylesheet">
+    <link href="../_css/jquery-ui.min.css" rel="stylesheet">
+    <script src="../_js/jquery.min.js"></script>
+    <script src="../_js/jquery-ui.min.js"></script>
+    <script src="../_js/jquery.lettering.js"></script>
+    <script src="../_js/jquery.textillate.js"></script>
+    <script src="../_js/jQueryRotate.2.1.js"></script>
+    <script src="../_js/index.js"></script>
+    <script src="../js/link2.js"></script>
+     <link rel="stylesheet" href="../css/nav.css">
+    <script src="../js/nav.js"></script>
+    <script src="../_js/build/mediaelement-and-player.min.js"></script>
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" href="../css/mediaelementplayer.min.css">
+<link rel="stylesheet" href="../css/music.css">
+<script src="../_js/music.js"></script>
+<link rel="stylesheet" href="../css/music2.css">
+<script src="../js/music2.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+<script src="../js/top5_2.js"></script>
+<!--<script type="text/javascript" src="../js/music2.js" charset="UTF-8"></script>-->
+</head>
+
+<style>
+    #context{
+        color: white;
+    margin-top: 160px;
+    margin-left: 350px;
+height: 2200px;
+    width:1080px;
+    }
+    #title{
+           width: 380px; 
+  
+    float: left;
+    margin-right: 500px;
+   margin-top: 120px;
+        display: none;
+    }
+    #img1,#img1 img{
+       position: absolute;
+            margin-top: 40px;
+width: 333px;
+        height: 500px;
+    }
+    #img2 img{
+           position: absolute;
+  width: 219px;
+        height: 314px;
+      margin-top: 280px;
+    margin-left: 500px;
+        display: none;
+    }
+    #img3 img{
+          position: absolute;
+       height: 314px;
+      margin-top: 280px;
+          margin-top: 280px;
+/*    margin-left: 500px;*/
+       margin-left: 750px;
+        opacity: 0;
+    }
+    #img4 img{
+        position: absolute;
+               height: 314px;
+      margin-top: 320px; 
+        margin-left: 500px;
+    }
+    .art{
+     width: 400px;
+    font-family: 微軟正黑體;
+/*        margin-top: 200px;*/
+/*        float: left*/
+    }
+    #paragraph2{
+        margin-top: 50px;
+    }
+    #title2{
+        margin-top: 300px;
+  opacity: 0;
+    }
+    #newlove{
+        position: fixed;
+    top: 600px;
+        left: 1000px;
+        display: none;
+    }
+    #title3{
+        margin-top: 300px;
+  opacity: 0;
+    }
+    #title4{
+        margin-top: 300px;
+   
+          opacity: 0;
+    }
+    #paragraph5{
+              height: 500px;
+    }
+    
+    #news_{
+        position: absolute;
+           left: 866px;
+        margin-top: 20px;
+    }
+    #news_ a{
+        text-decoration: none;
+        color: wheat;
+        font-family: 微軟正黑體;
+        font-size: 20px;
+     
+    }
+        #news_ a:hover{
+        text-decoration: underline;
+    
+    }
+    </style>
+<!--  <script src="../js/music2.js"></script>-->
+    <script>
+
+    $(document).ready(function(){
+//             gay();
+       $('#img1').animate({marginLeft:500},1500); 
+        
+        $('#title').fadeIn(3000);
+        
+         $('#title1').css('opacity','0');
+    });
+          $(window).scroll(function() {
+              var isplayed=false;
+                    var scrollVal = $(this).scrollTop();
+                    console.log(scrollVal);
+                    if (scrollVal > 400) 
+                    {
+                      
+                     $('#newlove').fadeIn(1000);
+                        $('#img2 img').fadeIn(2000);
+                               $('#title2').animate({opacity:1},1500); 
+
+                    }
+              if (scrollVal < 240)
+                                      {
+//                                           $('#newlove').fadeOut(300);
+                                      }
+              if(scrollVal>1040)
+                {
+         
+                    $('#title3').animate({opacity:1},1500); 
+                 $('#img3').children().animate({marginLeft:500,opacity:1},1500);
+                  
+ 
+                }                                 
+              if(scrollVal>1600)
+                  {
+                        $('#title4').animate({opacity:1},1500); 
+
+                  }
+                  
+                });
+        //----------------------------------------------//
+       
+      
+        audio.init();
+        //----------------------------------------------//
+    </script>
+<body>
+     <div id="logo">
+        <a href="../index.html"> <img src="../_image/musicicon.png" id="icon"></a>
+        <h1 id="icontext"></h1>
+    </div>
+    <div id="header">
+
+        <div id="top5_singer_title">
+            <h2 style="font-size: 30px">today's top 5</h2>
+        </div>
+
+        <div id="logo">
+            <img src="">
+            <h1 id="icontext"></h1>
+
+        </div>
+        <div id="top5_singer">
+            <div id="top1" class="topsin">
+
+                <a href="" target="_blank"><img src="../_image/singer/drake.jpg" alt="" class="singer"></a>
+                <div id="name" class="singername">Drake</div>
+            </div>
+            <div id="top2" class="topsin">
+               <a href="" target="_blank"><img src="../_image/singer/theweeknd.jpg" alt="" class="singer"></a> 
+                <div id="name2" class="singername">The Weeknd</div>
+            </div>
+            <div id="top3" class="topsin">
+               <a href="" target="_blank"><img src="../_image/singer/jb.jpg" alt="" class="singer"></a> 
+                <div id="name3" class="singername">Justin Bieber</div>
+            </div>
+            <div id="top4" class="topsin">
+              <a href="" target="_blank"> <img src="../_image/singer/dualipa.jpg" alt="" class="singer"></a> 
+                <div id="name4" class="singername">Dua Lipa</div>
+            </div>
+
+            <div id="top5" class="topsin">
+                  <a href="" target="_blank"><img src="../_image/singer/ariana.jpg" alt="" class="singer"></a> 
+                <div id="name5" class="singername">Ariana Grande</div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+        <div id="nav">
+        <div id="top10" class="navbar">
+       <div id="home">      <a href="../index.html" >Home</a></div>
+  
+        
+    
+     <div id="toplist">
+        
+           <div id="tit">    <p class="navtext" >Top 10</p>  <i class="fas fa-sort-down" id="sortdown"></i></div><div id="list"><div id="listsingle">   <a href="../top10single.html"  class="navtext_" >Single</a></div>
+                <div id="listsingle">
+                      <a href="../top10album.html" class="navtext_">Album</a>
+                </div></div> 
+                  
+         
+            
+
+            
+        </div>
+              </div>
+                   </div>
+    <div id="context" style="color: white">
+           <div id="news_"><a href="gggg.html">Dua Lipa新專輯Future Nostalgia</a></div>
+        <div id="artmain">
+<!--
+           <div id="title"><h1>gay</h1></div>
+           <div id="author"><h2>韓國瑜</h2></div>
+-->
+          <div id=""></div>
+           <div id="img1"><img src="dua/2.jpg" alt=""></div>
+           <div id="title"><h1 style="color: #ffdedd;font-size: 30px;font-family: 微軟正黑體">今年最致命的英倫危險女聲 Dua Lipa</h1></div>
+            <div class="art" id="paragraph1 "style="">
+               <p> &nbsp;&nbsp;&nbsp;&nbsp;有在關注西洋音樂的人，對來自英國的矚目新聲杜娃黎波Dua Lipa肯定不陌生，一頭烏黑長髮配上性感厚唇，天生散發致命吸引力；中低音磁性嗓音與慵懶迷幻聲線，更顯獨特神秘感，還沒正式發專輯前，就以多首單曲獲得各方關注，更被各大媒體斷言會是下一個新天后。</p>
+            </div>
+            <div class="art" id="paragraph2">
+             <p> &nbsp;&nbsp;&nbsp;&nbsp;Dua Lipa從小就因為父親Dukagjin Lipa的搖滾歌手身分而有音樂天分，14歲時，她開始在YouTube上傳出她翻唱的影片，並在16歲時搬至倫敦追尋音樂夢。</p>
+             
+            </div>
+           <div id="img2"><img src="dua/3.jpg" alt=""></div>
+             <div id="title2"><h1 style="color: #ffdedd;font-size: 30px;font-family: 微軟正黑體">2015-16年發布熱門單曲</h1></div>
+              <div class="art" id="paragraph3">
+             <p> &nbsp;&nbsp;&nbsp;&nbsp;她在2015年與華納音樂簽約，不到幾個月就釋出第一首熱門單曲《New Love》，Dua Lipa渾厚又有性感的聲線完美唱活了這首歌的歌。不到兩個月釋出第一首火爆單曲《Be The One》
+，一釋出馬上在歐洲各國爆紅，並在Youtube上有4.4億的點閱數。</p>
+               <br>
+             
+               <br>
+                <p> &nbsp;&nbsp;&nbsp;&nbsp;要說Dua Lipa最能代表Dua lipa聲音的作品一定是《Last Dance》，渾厚低沉充滿磁性的嗓音，歌詞寫道她說"The beat, the darkness, the lyrics, the pop chorus, right, this my sound"。這種節奏感，這種暗黑感和流行元素的融合，沒錯這就是我的聲音。</p>
+            </div>
+             <div id="img3"><img src="dua/4.jpg" alt=""></div>
+            <div id="title3"><h1 style="color: #ffdedd;font-size: 30px;font-family: 微軟正黑體">第一張專輯與第一支奪冠單曲</h1></div>
+            <div class="art" id="paragraph4">
+                <p> &nbsp;&nbsp;&nbsp;&nbsp;迅速知名的Dua Lipa引起許多音樂製作人的興趣，2016年11月與雷鬼歌手Sean Paul合作單曲《No Lie》，隔年1月荷蘭電音天王Martin Garrix與她釋出合作單曲《Scared To Be Lonely》。</p>
+                <br>
+                <br>
+                 <p> &nbsp;&nbsp;&nbsp;&nbsp;在2017年6月2號，終於釋出她第一首同名專輯《Dua Lipa》，裡面第六首單曲《New Rule》成為她第一支在英國奪冠的歌曲，並在Billboard奪得第6的成績、Youtube超過21億的點閱數。</p>
+            </div>
+            <div id="img4"><img src="dua/5.jpg" alt=""></div>
+            <div id="title4"><h1 style="color: #ffdedd;font-size: 30px;font-family: 微軟正黑體">第二支奪冠單曲與高評價專輯</h1>
+               </div>
+                
+           <div class="art" id="paragraph5">
+                <p> &nbsp;&nbsp;&nbsp;&nbsp;2018年比較低調，只發布Dua Lipa與英國電音DJ Calvin Harris合作單曲《One Kiss》和Silk City的《Electricity》，但這兩首都引起非常大的迴響，分別在Youtube獲得6億以及1億的點閱數。</p>
+                <br>
+                <br>
+                 <p> &nbsp;&nbsp;&nbsp;&nbsp;2020年11月，將近兩年終於釋出單曲《Don't Start Now》，此單曲一出立馬在英國奪冠並在Billboard得到第2的成績，到隔年3月都還是電台榜的冠軍。Dua Lipa不到2個月又發布單曲《Physical》，這兩首都是復古80年代的舊歌曲，與The Weeknd並駕為2020新復古歌手。2020年3月發布另一首單曲《Break My Heart》，並釋出全新專輯《Future Nostalgia》。此專輯全部歌曲都取樣80年代的歌曲，獲得歌評將近滿分的評價。</p>
+               
+               
+           </div>
+            </div>
+           
+        
+            <div class="app-cover" id="newlove">
+       
+        <div id="player">
+            <div id="player-track">
+                <div id="album-name"></div>
+                <div id="track-name"></div>
+                <div id="track-time">
+                    <div id="current-time"></div>
+                    <div id="track-length"></div>
+                </div>
+                <div id="s-area">
+                    <div id="ins-time"></div>
+                    <div id="s-hover"></div>
+                    <div id="seek-bar"></div>
+                </div>
+                </div>
+                <div id="player-content">
+                <div id="album-art">
+                    <img src="dua/betheone.jpg" class="active" id="_1">
+                    <img src="dua/newrules.jpg" id="_2">
+                                       <img src="dua/dont.jpg" id="_3">
+                    <div id="buffer-box">讀取中 ...</div>
+                </div>
+               <div id="player-controls">
+                    <div class="control">
+                        <div class="button" id="play-previous">
+                            <i class="fas fa-backward"></i>
+                        </div>
+                    </div>
+                    <div class="control">
+                        <div class="button" id="play-pause-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="control">
+                        <div class="button" id="play-next">
+                            <i class="fas fa-forward"></i>
+                        </div>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+        
+     </div>
+     </div>
+</body>
+
+</html>

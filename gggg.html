@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>dua lipa</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+
+    <link href="../_css/site.css" rel="stylesheet">
+    <link href="../_css/index.css" rel="stylesheet">
+    <link href="../_css/jquery-ui.min.css" rel="stylesheet">
+    <script src="../_js/jquery.min.js"></script>
+    <script src="../_js/jquery-ui.min.js"></script>
+    <script src="../_js/jquery.lettering.js"></script>
+    <script src="../_js/jquery.textillate.js"></script>
+    <script src="../_js/jQueryRotate.2.1.js"></script>
+    <script src="../_js/index.js"></script>
+    <script src="../js/link2.js"></script>
+    <link rel="stylesheet" href="../css/nav.css">
+    <script src="../js/nav.js"></script>
+    <link rel="stylesheet" href="../_css/animate.min.css">
+    <script src="../_js/build/mediaelement-and-player.min.js"></script>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="../css/mediaelementplayer.min.css">
+    <link rel="stylesheet" href="../css/music.css">
+    <script src="../_js/music.js"></script>
+    <link rel="stylesheet" href="../css/music2.css">
+    <script src="../js/music3.js"></script>
+    <script src="../_js/howler.core.js"></script>
+    <link rel="stylesheet" href="../css/abc.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <script src="../js/abc.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
+    <script src="https://jschr.github.io/textillate/jquery.textillate.js"></script>
+<script src="../js/top5_2.js"></script>
+    <!--<script type="text/javascript" src="../js/music2.js" charset="UTF-8"></script>-->
+</head>
+
+<style>
+    #context {
+        color: white;
+        margin-top: 200px;
+
+        height: 730px;
+        width: 100%;
+    }
+
+    #title {
+        width: 380px;
+
+        float: left;
+        margin-right: 500px;
+        margin-top: 120px;
+        display: none;
+    }
+
+    #img1,
+    #img1 img {
+        position: absolute;
+        margin-top: 40px;
+        width: 333px;
+        height: 500px;
+    }
+
+    #img2 img {
+        position: absolute;
+        width: 219px;
+        height: 314px;
+        margin-top: 280px;
+        margin-left: 500px;
+        display: none;
+    }
+
+    #img3 img {
+        position: absolute;
+        height: 314px;
+        margin-top: 280px;
+        margin-top: 280px;
+        /*    margin-left: 500px;*/
+        margin-left: 750px;
+        opacity: 0;
+    }
+
+    #img4 img {
+        position: absolute;
+        height: 314px;
+        margin-top: 320px;
+        margin-left: 500px;
+    }
+
+    .art {
+        width: 400px;
+        font-family: 微軟正黑體;
+        /*        margin-top: 200px;*/
+        /*        float: left*/
+    }
+
+    #paragraph2 {
+        margin-top: 50px;
+    }
+
+    #title2 {
+        margin-top: 300px;
+        opacity: 0;
+    }
+
+    #newlove {
+        position: fixed;
+        top: 600px;
+        left: 1000px;
+        display: none;
+    }
+
+    #title3 {
+        margin-top: 300px;
+        opacity: 0;
+    }
+
+    #title4 {
+        margin-top: 300px;
+
+        opacity: 0;
+    }
+
+    #paragraph5 {
+        height: 500px;
+    }
+
+</style>
+<!--  <script src="../js/music2.js"></script>-->
+<script>
+    
+    $(document).ready(function() {
+     
+            $(window).ready(function() {
+//            console.log(123);
+            $(window).on('beforeunload', function() {
+                $(window).scrollTop(244);
+
+            });
+                            $(window).on('load', function() {
+               
+      $('html,body').animate({ scrollTop: 244 }, 1000);
+
+            });
+        }); 
+        //             gay();
+        $('#img1').animate({
+            marginLeft: 500
+        }, 1500);
+
+        $('#title').fadeIn(3000);
+
+        $('#title1').css('opacity', '0');
+
+    }); //180
+    $(window).scroll(function() {
+        
+        var isplayed = false;
+        var scrollVal = $(this).scrollTop();
+        console.log(scrollVal);
+        if (scrollVal > 400) {
+
+            $('#newlove').fadeIn(1000);
+            $('#img2 img').fadeIn(2000);
+            $('#title2').animate({
+                opacity: 1
+            }, 1500);
+
+        }
+        if (scrollVal > 180) {
+
+        }
+        if (scrollVal > 1040) {
+
+            $('#title3').animate({
+                opacity: 1
+            }, 1500);
+            $('#img3').children().animate({
+                marginLeft: 500,
+                opacity: 1
+            }, 1500);
+
+
+        }
+        if (scrollVal > 1600) {
+            $('#title4').animate({
+                opacity: 1
+            }, 1500);
+
+        }
+
+    });
+    //----------------------------------------------//
+
+
+    audio.init();
+    //----------------------------------------------//
+
+</script>
+
+<body>
+
+    <div id="logo">
+        <a href="../index.html"> <img src="../_image/musicicon.png" id="icon"></a>
+        <h1 id="icontext"></h1>
+    </div>
+    <div id="header">
+
+        <div id="top5_singer_title">
+            <h2 style="font-size: 30px">today's top 5</h2>
+        </div>
+
+        <div id="logo">
+            <img src="">
+            <h1 id="icontext"></h1>
+
+        </div>
+        <div id="top5_singer">
+            <div id="top1" class="topsin">
+
+                <a href="" target="_blank"><img src="../_image/singer/drake.jpg" alt="" class="singer"></a>
+                <div id="name" class="singername">Drake</div>
+            </div>
+            <div id="top2" class="topsin">
+                <a href="" target="_blank"><img src="../_image/singer/theweeknd.jpg" alt="" class="singer"></a>
+                <div id="name2" class="singername">The Weeknd</div>
+            </div>
+            <div id="top3" class="topsin">
+                <a href="" target="_blank"><img src="../_image/singer/jb.jpg" alt="" class="singer"></a>
+                <div id="name3" class="singername">Justin Bieber</div>
+            </div>
+            <div id="top4" class="topsin">
+                <a href="" target="_blank"> <img src="../_image/singer/dualipa.jpg" alt="" class="singer"></a>
+                <div id="name4" class="singername">Dua Lipa</div>
+            </div>
+
+            <div id="top5" class="topsin">
+                <a href="" target="_blank"><img src="../_image/singer/ariana.jpg" alt="" class="singer"></a>
+                <div id="name5" class="singername">Ariana Grande</div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+    <div id="context" style="color: white">
+
+        <div id="_main">
+
+            <div id="left_ui">
+               <div id="albname"><h1>
+                   Future Nostalgia
+               </h1></div>
+                <div id="data">
+                   
+                    <h1  data-out-effect="fadeOutDown" data-out-sync="true">Don't Start Now</h1>
+                    <h2  data-out-effect="fadeOutDown" data-out-sync="true">Dua Lipa</h2>
+                </div>
+
+            </div>
+            <div id="top_ui_"></div>
+            <div id="top_ui">
+                <div id="info">
+                    <h1  data-out-effect="fadeOut" data-out-sync="true">Album Info</h1>
+                    <p >《Don't Start Now》 Billboard No.2</p>
+                          <p >Metacritic 88/100</p>
+                             <p >Album of the Year 86/100</p> 
+                </div>
+                <div id="_icon">
+                    <ul>
+                        　<li><a href="https://open.spotify.com/album/7fJJK56U9fHixgO0HQkhtI?si=THd7-hksTh-TZffrg4mrkw"><img src="dua/spot.png" alt="" class="icon"></a></li>
+                        　<li><img src="dua/yt.png" alt="" class="icon"></li>
+                        　<li></li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div id="bot_ui">
+             
+                
+            </div>
+            <div id="singerpic"> </div>
+            <img src="dua/5.jpg" alt="" id="aaa">
+            <div id="playbtn"><i class="fas fa-play"></i></div>
+   
+            <div id="singerpic_mask"></div>
+         
+            <img src="dua/bbbb.jpg" alt="" id="bot_pic">
+                  <div id="nextbtn"><i class="fas fa-forward"></i></div>
+                  <div id="nextsongname">
+                    <h1>Physical</h1>
+                </div>
+            <div id="botmask"></div>
+
+        </div>
+
+
+        <div class="app-cover" id="newlove">
+
+            <div id="player">
+                <div id="player-track">
+                    <div id="album-name"></div>
+                    <div id="track-name"></div>
+                    <div id="track-time">
+                        <div id="current-time"></div>
+                        <div id="track-length"></div>
+                    </div>
+                    <div id="s-area">
+                        <div id="ins-time"></div>
+                        <div id="s-hover"></div>
+                        <div id="seek-bar"></div>
+                    </div>
+                </div>
+                <div id="player-content">
+                    <div id="album-art">
+                        <img src="dua/betheone.jpg" class="active" id="_1">
+                        <img src="dua/newrules.jpg" id="_2">
+                        <img src="dua/dont.jpg" id="_3">
+                        <div id="buffer-box">讀取中 ...</div>
+                    </div>
+                    <div id="player-controls">
+                        <div class="control">
+                            <div class="button" id="play-previous">
+                                <i class="fas fa-backward"></i>
+                            </div>
+                        </div>
+                        <div class="control">
+                            <div class="button" id="play-pause-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="control">
+                            <div class="button" id="play-next">
+                                <i class="fas fa-forward"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+       </div>
+</body>
+
+</html>

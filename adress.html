@@ -1,0 +1,714 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>order</title>
+
+    <style>
+        body {
+            height: 650px;
+        }
+
+        .singername {
+            display: none;
+        }
+
+        .navbar {
+            color: #ffffff;
+            margin-top: 100px;
+            width: 100%;
+            font-size: 25px;
+            /*           margin-left: 150px;*/
+        }
+
+
+
+        h2 {
+            font-size: 30px;
+        }
+
+        #introsinger {
+            width: 250px;
+            height: 250px;
+            display: none;
+
+            position: absolute;
+        }
+
+        #intro {
+            font-size: 20px;
+            float: right;
+        }
+
+        #introname {
+            font-size: 20px;
+            position: absolute;
+            margin-top: 285px;
+        }
+
+        #main {
+            color: wheat;
+            margin-top: 200px;
+        }
+
+        .art {
+            display: none;
+            font-size: ;
+            width: 500px;
+            font-family: 微軟正黑體;
+        }
+
+        #introlink {
+            position: absolute;
+            top: 400px;
+            margin-left: 400px;
+            color: cornflowerblue;
+        }
+
+        #todaysingle {
+            color: white;
+            margin-top: 120px;
+            margin-left: 500px;
+            height: 30px;
+            position: absolute;
+            top: 400px;
+        }
+
+        #single {
+            font-size: 20px;
+            float: right;
+            margin-right: 80px;
+
+        }
+
+        .line {
+
+            border-top: 1px #1c1c1c solid;
+            color: white;
+            width: 1000px;
+            position: absolute;
+            margin-left: 300px;
+        }
+
+        #singleimg {
+            width: 250px;
+            height: 250px;
+            position: absolute;
+            right: 443px;
+        }
+
+        #info {}
+
+        #singlename {
+            margin-left: 300PX;
+            margin-top: 50px
+        }
+
+        #singleartistname {
+            margin-left: 300PX;
+        }
+
+        .streamicon {
+            width: 40;
+            height: 40;
+            border-radius: 20px;
+        }
+
+        #linkicon {
+            width: 40;
+            height: 40;
+            cursor: pointer;
+        }
+
+        #musiclink {
+            height: 50px;
+            width: auto;
+            margin-top: 25px;
+            position: absolute;
+            left: 300px;
+            height: auto;
+
+        }
+
+        #todaysablum {
+            position: absolute;
+            top: 850px;
+            left: 500px;
+            color: white;
+        }
+
+        #albumimg {
+            width: 250px;
+            height: 250px;
+            position: absolute;
+            /*                right: 197px;*/
+            right: 358px;
+            top: 10;
+        }
+
+        #album {
+            color: white;
+            /*    float: right;*/
+            width: auto;
+            margin-left: 290px;
+            ;
+            font-size: 20px;
+        }
+
+        #albumname {
+            POSITION: absolute;
+            left: 293;
+            width: 250;
+            top: 30;
+        }
+
+        #introsingle {
+            width: 250px;
+            height: 250px;
+            margin-top: 700px;
+            position: absolute;
+            right: -110;
+            float: right;
+        }
+
+        #singleintro {
+            position: absolute;
+            top: 700px;
+            left: 150px;
+            width: 300px;
+            font-size: 30px;
+        }
+
+        #introsinglename {
+            position: absolute;
+            font-size: 30px;
+            top: 760px;
+            left: 150px;
+        }
+
+        #singlemain {
+            position: absolute;
+            top: 1340px;
+            width: 500px;
+            left: 650px;
+        }
+
+        .singleart {
+            color: wheat;
+            font-family: 微軟正黑體;
+        }
+
+        #singleintrolink {
+            color: cornflowerblue;
+            font-family: 微軟正黑體;
+        }
+
+        #top10 {
+            height: 120px;
+            font-family: poppins;
+
+        }
+
+        #top10 h1 {
+            width: 100px;
+            border-radius: 10px;
+            font-family: poppins;
+            user-select: none;
+        }
+
+        #navsingle {
+            color: wheat;
+            position: absolute;
+            display: none;
+            top: 280px;
+        }
+
+        #navalbum {
+            display: none;
+            color: wheat;
+            /*         opacity: 0;*/
+            position: absolute;
+            top: 320px;
+        }
+
+        .navtext {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-family: sans-serif;
+            /*            float: left;*/
+
+        }
+
+        .navtext_ {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-family: sans-serif;
+            /*            float: left;*/
+
+
+            margin-top: 15px;
+        }
+
+        .navtext a {
+            color: wheat;
+            font-family: sans-serif;
+            text-decoration: none;
+        }
+
+        #toplist {
+
+            font-family: sans-serif;
+            text-decoration: none;
+            margin-top: 20px;
+
+        }
+
+        #home {
+            color: wheat;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            width: 65%;
+            margin: 0 auto;
+        }
+
+        #home a {
+            color: wheat;
+            font-family: sans-serif;
+            text-decoration: none;
+        }
+
+        #tit {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            width: 65%;
+            margin: 0 auto;
+            overflow: hidden;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        #listsingle {
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            width: 55%;
+            margin: 0 30px;
+            float: right;
+        }
+
+        #sortdown {
+            position: absolute;
+            margin-top: -31px;
+            margin-left: 85px;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        #list {
+            overflow: hidden;
+            display: none;
+        }
+
+        .name_ {
+            font-family: sans-serif;
+            font-size: 25px;
+            margin-left: 130px;
+            
+        }
+
+        .price_ {
+            font-family: sans-serif;
+            font-size: 15px;
+            margin-left: 130px;
+        }
+
+        .img_ {
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+
+        .merch {
+            width: 400px;
+            height: 100px;
+            margin-top: 30px;
+
+        }
+
+        #content_ {
+            max-width: 720px;
+            margin: 150px 0 0 400px;
+            color: white;
+
+        }
+
+        .buybtncontainer {
+            margin-left: 1000px;
+            margin-top: -40;
+            position: fixed;
+            top: 95%;
+        }
+
+        .buybtn {
+            width: 70px;
+            height: 30px;
+
+        }
+
+        .order {
+            height: 100px;
+             background-color: #1c1c1c;
+            margin-top: 120px;
+            border-radius: 5px;
+        }
+
+        .order img {
+            float: left;
+            width: 100px;
+            height: 100px;
+ border-radius: 5px;
+        }
+
+        .orderinfo {
+            height: fit-content;
+            background-color: #1c1c1c;
+      
+        }
+
+        .ordertitle {
+            margin: 0 auto;
+            width: fit-content;
+            font-size: 25px;
+            font-family: sans-serif;
+        }
+
+        .cost {
+            width: fit-content;
+            float: right;
+            margin-top: 0px;
+            margin-right: 10px;
+            font-size: 25px;
+            font-family: sans-serif;
+            position: absolute;
+            margin-left: 640px;
+        }
+
+        .date {
+            width: fit-content;
+            height: fit-content;
+            margin-left: 640px;
+            margin-top: 1;
+            position: absolute;
+            margin-top: 40px;
+        }
+
+        .index {
+            width: fit-content;
+            height: fit-content;
+            margin-left: 120px;
+            position: absolute;
+            margin-top: 40px;
+        }
+
+        .userinfo {
+            background-color: #1c1c1c;
+            width: 620px;
+            height: 100px;
+            position: absolute;
+            margin-top: 69.3px;
+            margin-left: 100px;
+            display: none;
+                  border-top: 1px white solid;
+        }
+
+        ._name_ {
+            width: fit-content;
+            margin-left: 20px;
+            ;
+            margin-top: 15px;
+        }
+
+        .phone {
+            width: fit-content;
+            margin-left: 20px;
+            ;
+            margin-top: 5px;
+        }
+
+        .adres {
+            width: fit-content;
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+    #order {
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            width: 65%;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        #order a {
+           color:  rgba(255, 255, 255, 0.8);
+        }
+    </style>
+    <link rel="stylesheet" href="_css/animate.min.css">
+    <link href="_css/site.css" rel="stylesheet">
+    <link href="_css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/cart.css">
+    <link href="_css/jquery-ui.min.css" rel="stylesheet">
+    <script src="_js/jquery.min.js"></script>
+    <script src="_js/jquery-ui.min.js"></script>
+    <script src="_js/jquery.lettering.js"></script>
+    <script src="_js/jquery.textillate.js"></script>
+    <script src="_js/jQueryRotate.2.1.js"></script>
+    <script src="_js/index.js"></script>
+    <script src="js/link.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/top5.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+
+    <script>
+        //    
+        //                
+        //              
+        //              
+        //                var uss=JSON.parse(localStorage.getItem("usongname"));
+        //                   var uuurl=JSON.parse(localStorage.getItem("imgurll"));
+        //                var uuname= JSON.parse(localStorage.getItem("li_username")); 
+        //         var uuphone= JSON.parse(localStorage.getItem("li_phone")); 
+        //        var uuaddress= JSON.parse(localStorage.getItem("li_address"));
+        //                          var summ= JSON.parse(localStorage.getItem("wholemoney"));
+        //              var index=JSON.parse(localStorage.getItem("code"));
+        //                var ty = JSON.parse(localStorage.getItem("li_year")); 
+        //                    var tm = JSON.parse(localStorage.getItem("li_month")); 
+        //                    var td = JSON.parse(localStorage.getItem("li_day")); 
+        //               
+
+
+        isplayed = false;
+
+        var orderinfo = {
+            name: [],
+            address: [],
+            phone: [],
+            firstitem: [],
+            year: [],
+            month: [],
+            day: [],
+            index: [],
+            cost: [],
+            itemurl:[],
+        };
+
+
+
+
+
+
+        $(function() {
+            var code=0;
+            var h=650;
+            var local_price = JSON.parse(localStorage.getItem("st_price"));
+            var local_imgurl = JSON.parse(localStorage.getItem("st_imgurl"));
+            var local_songname = JSON.parse(localStorage.getItem("st_songname"));
+            orderinfo.name = JSON.parse(localStorage.getItem("info_name"));
+            orderinfo.address = JSON.parse(localStorage.getItem("info_address"));
+            orderinfo.phone = JSON.parse(localStorage.getItem("info_phone"));
+            orderinfo.index = JSON.parse(localStorage.getItem("info_index"));
+            orderinfo.firstitem = JSON.parse(localStorage.getItem("info_firstitem"));
+            orderinfo.day = JSON.parse(localStorage.getItem("info_day"));
+            orderinfo.year = JSON.parse(localStorage.getItem("info_year"));
+            orderinfo.month = JSON.parse(localStorage.getItem("info_month"));
+            orderinfo.index = JSON.parse(localStorage.getItem("info_index"));
+            orderinfo.cost = JSON.parse(localStorage.getItem("info_cost"));
+            orderinfo.itemurl = JSON.parse(localStorage.getItem("info_url"));
+
+
+
+            //                
+            //                $('.ordertitle').html(uss);
+            //                $('.orderinfo').children('img').attr('src',uuurl);
+            //                $('._name_').html('姓名:'+uuname);
+            //                $('.adres').html('住址:'+uuaddress);
+            //                $('.phone').html('電話:'+uuphone);
+            //                                $('.cost').html('$'+summ);
+            //              $('.date').html(ty+'-'+tm+'-'+td);
+            //                $('.index').html('編號:00000'+index);
+            for (i = 0; i < orderinfo.index.length; i++) {
+                code++
+                $('body').css('height',h+100*orderinfo.index.length)
+                $('#content_').append('<div class="order"><div class="orderinfo"><img src="'+orderinfo.itemurl[i]+'" alt=""><p class="ordertitle">'+orderinfo.firstitem[i]+'</p> <p class="date">'+orderinfo.year[i] + '-' + orderinfo.month[i] + '-' + orderinfo.day[i]+'</p><p class="index">編號:00000'+code+'</p></div><p class="cost">$'+orderinfo.cost[i]+'</p><div class="userinfo"> <div class="_name_">姓名:'+orderinfo.name[i]+'</div> <div class="adres">地址:'+orderinfo.address[i]+'</div> <div class="phone">電話:'+orderinfo.phone[i]+'</div></div></div>');
+                
+                
+//                $('.ordertitle').html(orderinfo.firstitem);
+//                $('.orderinfo').children('img').attr('src',orderinfo.itemurl);
+//                $('._name_').html('姓名:' + orderinfo.name);
+//                $('.adres').html('住址:' + orderinfo.address);
+//                $('.phone').html('電話:' + orderinfo.phone);
+//                $('.cost').html('$' + orderinfo.cost);
+//                $('.date').html(orderinfo.year + '-' + orderinfo.month + '-' + orderinfo.day);
+//                $('.index').html('編號:00000' + orderinfo.index);
+            }
+
+
+
+            for (i = 0; i < local_songname.length; i++) {
+
+                $('#content').append('  <div class="merch"><img src="' + local_imgurl[i] + '" alt="" class="img_"><div class="name_">' + local_songname[i] + '</div><div class="price_">' + local_price[i] + '</div></div>');
+            }
+
+
+            $('.order').mouseover(function() {
+                $(this).children('.userinfo').stop();
+                $(this).children('.userinfo').fadeIn(500);
+
+            });
+            $('.order').mouseout(function() {
+                $(this).children('.userinfo').stop();
+                $(this).children('.userinfo').fadeOut(500);
+
+            });
+            $('#top10').mouseover(function() {
+                $(this).children().stop();
+                $(this).children('h2').fadeIn(500);
+                $(this).children('h1').animate({
+                    backgroundColor: '#363636'
+                })
+            });
+            $('#top10').mouseout(function() {
+                $(this).children().stop();
+                $(this).children('h1').animate({
+                    backgroundColor: '#000000'
+                })
+                $(this).children('h2').fadeOut(500);
+
+            });
+
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="logo">
+        <a href="index.html"> <img src="_image/musicicon.png" id="icon"></a>
+
+
+        <h1 id="icontext"></h1>
+    </div>
+    <div id="cart">
+        <i id="cartlogo" class="fas fa-shopping-cart"></i>
+
+        <div id="cartcontainer">
+            <i class="fas fa-caret-up"></i>
+            <p>Shop-Cart</p>
+
+        </div>
+
+    </div>
+    <div id="header">
+
+        <div id="top5_singer_title">
+            <h2 style="font-size: 30px">today's top 5</h2>
+        </div>
+
+        <div id="logo">
+            <img src="">
+            <h1 id="icontext"></h1>
+
+        </div>
+        <div id="top5_singer" style="user-select:none;">
+            <div id="top1" class="topsin">
+                <a href=""> <img src="_image/singer/drake.jpg" alt="" class="singer"></a>
+
+                <div id="name" class="singername">Drake</div>
+            </div>
+            <div id="top2" class="topsin"><a href="" target="_blank"> <img src="_image/singer/theweeknd.jpg" alt="" class="singer"></a>
+
+                <div id="name2" class="singername">The Weeknd</div>
+            </div>
+            <div id="top3" class="topsin">
+                <a href="" target="_blank"><img src="_image/singer/jb.jpg" alt="" class="singer"></a>
+                <div id="name3" class="singername">Justin Bieber</div>
+            </div>
+            <div id="top4" class="topsin">
+                <a href="singer/dualipa.html" target="_blank"><img src="_image/singer/dualipa.jpg" alt="" class="singer"></a>
+
+                <div id="name4" class="singername">Dua Lipa</div>
+            </div>
+
+            <div id="top5" class="topsin">
+                <a href="" target="_blank"><img src="_image/singer/ariana.jpg" alt="" class="singer"></a>
+                <div id="name5" class="singername">Ariana Grande</div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <div id="nav">
+        <div id="top10" class="navbar">
+            <div id="home"> <a href="index.html">Home</a></div>
+
+
+
+            <div id="toplist">
+
+                <div id="tit">
+                    <p class="navtext">Top 10</p> <i class="fas fa-sort-down" id="sortdown"></i>
+                </div>
+                <div id="list">
+                    <div id="listsingle"> <a href="top10single.html" class="navtext_">Single</a></div>
+                    <div id="listsingle">
+                        <a href="top10album.html" class="navtext_">Album</a>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+              <div id="order" class="navtext_"><a href="adress.html" style="text-decoration: none">Order</a></div>
+        </div>
+
+
+
+
+    </div>
+    <div id="content_">
+        <h1>Order</h1>
+<!--
+        <div class="order">
+
+
+            <div class="orderinfo">
+                <img src="https://charts-static.billboard.com/img/2019/11/dua-lipa-eqf-dont-start-now-q9p-155x155.jpg" alt="">
+                <p class="ordertitle">xxxx</p>
+
+                <p class="date">1989-06-04</p>
+                <p class="index">編號:55688</p>
+
+            </div>
+            <p class="cost">$1000</p>
+            <div class="userinfo">
+
+
+                <div class="_name_">姓名:korean fish</div>
+                <div class="adres">地址:雲林豪宅</div>
+                <div class="phone">電話:0912345678</div>
+            </div>
+        </div>
+-->
+      
+    </div>
+
+</body>
+
+</html>

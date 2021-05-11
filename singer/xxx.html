@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XXXTentacion</title>
+        
+        <link rel="stylesheet" href="../_css/animate.min.css">
+    <link href="../_css/site.css" rel="stylesheet">
+    <link href="../_css/index.css" rel="stylesheet">
+
+ <link href="../css/nav.css" rel="stylesheet">
+    <script src="../_js/jquery.min.js"></script>
+    <script src="../_js/jquery-ui.js"></script>
+    <script src="../_js/jquery.lettering.js"></script>
+    <script src="../_js/jquery.textillate.js"></script>
+    <script src="../_js/jQueryRotate.2.1.js"></script>
+    <script src="../_js/index.js"></script>
+     <script src="../js/link2.js"></script>
+     <link rel="stylesheet" href="../1.css">
+    <script src="../js/nav.js"></script>
+    <script src="../_js/build/mediaelement-and-player.min.js"></script>
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" href="../css/mediaelementplayer.min.css">
+<link rel="stylesheet" href="../css/music.css">
+<script src="../_js/music.js"></script>
+<link rel="stylesheet" href="../css/music2.css">
+<!--<script src="../js/music2.js"></script>-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.0/css/all.css">
+<script src="../js/top5_2.js"></script>
+<!--<script type="text/javascript" src="../js/music2.js" charset="UTF-8"></script>-->
+</head>
+
+<style>
+    #context{
+        color: white;
+    margin-top: 160px;
+    margin-left: 350px;
+height: 2200px;
+    width:1080px;
+    }
+    #title{
+           width: 380px; 
+  
+    float: left;
+    margin-right: 500px;
+   margin-top: 120px;
+        display: none;
+    }
+    #img1,#img1 img{
+       position: absolute;
+            margin-top: 40px;
+width: 333px;
+        height: 500px;
+    }
+    #img2 img{
+           position: absolute;
+  width: 219px;
+        height: 314px;
+      margin-top: 280px;
+    margin-left: 500px;
+        display: none;
+    }
+    #img3 img{
+          position: absolute;
+       height: 314px;
+      margin-top: 280px;
+          margin-top: 280px;
+/*    margin-left: 500px;*/
+       margin-left: 750px;
+        opacity: 0;
+    }
+    #img4 img{
+        position: absolute;
+               height: 314px;
+      margin-top: 320px; 
+        margin-left: 500px;
+        display: none;
+    }
+    .art{
+     width: 400px;
+    font-family: 微軟正黑體;
+/*        margin-top: 200px;*/
+/*        float: left*/
+    }
+    #paragraph2{
+        margin-top: 50px;
+    }
+    #title2{
+        margin-top: 300px;
+  opacity: 0;
+    }
+    #newlove{
+        position: fixed;
+    top: 600px;
+        left: 1000px;
+        display: none;
+    }
+    #title3{
+        margin-top: 300px;
+  opacity: 0;
+    }
+    #title4{
+        margin-top: 300px;
+   
+          opacity: 0;
+    }
+    #paragraph5{
+              height: 500px;
+    }
+    </style>
+<!--  <script src="../js/music2.js"></script>-->
+    <script>
+$(function()
+{
+    var isplayed=false;
+    var newrules=false;
+    var dont=false;
+    setInterval(hhh,1000);
+    function hhh(){
+        console.log(isplayed);
+    }
+    $(window).scroll(function() {
+                    var scrollVal = $(this).scrollTop();
+//                    console.log(scrollVal);
+          console.log(isplayed);
+                    if (scrollVal > 400&&scrollVal<600&&isplayed==false) {
+                     
+                        isplayed=true;
+                     playPause();
+             
+
+                    }else  if(scrollVal>1100&&newrules==false)
+            {
+                selectTrack(1);
+                    ispalyed=true;
+                 newrules=true;
+            }
+       
+        
+                });
+    var playerTrack = $("#player-track"), bgArtwork = $('#bg-artwork'), bgArtworkUrl, albumName = $('#album-name'), trackName = $('#track-name'), albumArt = $('#album-art'), sArea = $('#s-area'), seekBar = $('#seek-bar'), trackTime = $('#track-time'), insTime = $('#ins-time'), sHover = $('#s-hover'), playPauseButton = $("#play-pause-button"),  i = playPauseButton.find('i'), tProgress = $('#current-time'), tTime = $('#track-length'), seekT, seekLoc, seekBarPos, cM, ctMinutes, ctSeconds, curMinutes, curSeconds, durMinutes, durSeconds, playProgress, bTime, nTime = 0, buffInterval = null, tFlag = false, albums = ['Look At Me','Sad!'], trackNames = ['XXXtentacion','XXXtentacion'], albumArtworks = ['_1','_2'], trackUrl = ['../singer/xxx/look.mp3','../singer/xxx/sad.mp3'], playPreviousTrackButton = $('#play-previous'), playNextTrackButton = $('#play-next'), currIndex = -1;
+
+    function playPause()
+    {
+        setTimeout(function()
+        {
+            if(audio.paused)
+            {
+                playerTrack.addClass('active');
+                albumArt.addClass('active');
+                checkBuffering();
+                i.attr('class','fas fa-pause');
+                audio.play();
+            }
+            else
+            {
+                playerTrack.removeClass('active');
+                albumArt.removeClass('active');
+                clearInterval(buffInterval);
+                albumArt.removeClass('buffering');
+                i.attr('class','fas fa-play');
+                audio.pause();
+            }
+        },300);
+    }
+
+    	
+	function showHover(event)
+	{
+		seekBarPos = sArea.offset(); 
+		seekT = event.clientX - seekBarPos.left;
+		seekLoc = audio.duration * (seekT / sArea.outerWidth());
+		
+		sHover.width(seekT);
+		
+		cM = seekLoc / 60;
+		
+		ctMinutes = Math.floor(cM);
+		ctSeconds = Math.floor(seekLoc - ctMinutes * 60);
+		
+		if( (ctMinutes < 0) || (ctSeconds < 0) )
+			return;
+		
+        if( (ctMinutes < 0) || (ctSeconds < 0) )
+			return;
+		
+		if(ctMinutes < 10)
+			ctMinutes = '0'+ctMinutes;
+		if(ctSeconds < 10)
+			ctSeconds = '0'+ctSeconds;
+        
+        if( isNaN(ctMinutes) || isNaN(ctSeconds) )
+            insTime.text('--:--');
+        else
+		    insTime.text(ctMinutes+':'+ctSeconds);
+            
+		insTime.css({'left':seekT,'margin-left':'-21px'}).fadeIn(0);
+		
+	}
+
+    function hideHover()
+	{
+        sHover.width(0);
+        insTime.text('00:00').css({'left':'0px','margin-left':'0px'}).fadeOut(0);		
+    }
+    
+    function playFromClickedPos()
+    {
+        audio.currentTime = seekLoc;
+		seekBar.width(seekT);
+		hideHover();
+    }
+
+    function updateCurrTime()
+	{
+        nTime = new Date();
+        nTime = nTime.getTime();
+
+        if( !tFlag )
+        {
+            tFlag = true;
+            trackTime.addClass('active');
+        }
+
+		curMinutes = Math.floor(audio.currentTime / 60);
+		curSeconds = Math.floor(audio.currentTime - curMinutes * 60);
+		
+		durMinutes = Math.floor(audio.duration / 60);
+		durSeconds = Math.floor(audio.duration - durMinutes * 60);
+		
+		playProgress = (audio.currentTime / audio.duration) * 100;
+		
+		if(curMinutes < 10)
+			curMinutes = '0'+curMinutes;
+		if(curSeconds < 10)
+			curSeconds = '0'+curSeconds;
+		
+		if(durMinutes < 10)
+			durMinutes = '0'+durMinutes;
+		if(durSeconds < 10)
+			durSeconds = '0'+durSeconds;
+        
+        if( isNaN(curMinutes) || isNaN(curSeconds) )
+            tProgress.text('00:00');
+        else
+		    tProgress.text(curMinutes+':'+curSeconds);
+        
+        if( isNaN(durMinutes) || isNaN(durSeconds) )
+            tTime.text('00:00');
+        else
+		    tTime.text(durMinutes+':'+durSeconds);
+        
+        if( isNaN(curMinutes) || isNaN(curSeconds) || isNaN(durMinutes) || isNaN(durSeconds) )
+            trackTime.removeClass('active');
+        else
+            trackTime.addClass('active');
+
+        
+		seekBar.width(playProgress+'%');
+		
+		if( playProgress == 100 )
+		{
+			i.attr('class','fa fa-play');
+			seekBar.width(0);
+            tProgress.text('00:00');
+            albumArt.removeClass('buffering').removeClass('active');
+            clearInterval(buffInterval);
+		}
+    }
+    
+    function checkBuffering()
+    {
+        clearInterval(buffInterval);
+        buffInterval = setInterval(function()
+        { 
+            if( (nTime == 0) || (bTime - nTime) > 1000  )
+                albumArt.addClass('buffering');
+            else
+                albumArt.removeClass('buffering');
+
+            bTime = new Date();
+            bTime = bTime.getTime();
+
+        },100);
+    }
+
+    function selectTrack(flag)
+    {
+        if( flag == 0 || flag == 1 )
+            ++currIndex;
+        else
+            --currIndex;
+
+        if( (currIndex > -1) && (currIndex < albumArtworks.length) )
+        {
+            if( flag == 0 )
+                i.attr('class','fa fa-play');
+            else
+            {
+                albumArt.removeClass('buffering');
+                i.attr('class','fa fa-pause');
+            }
+
+            seekBar.width(0);
+            trackTime.removeClass('active');
+            tProgress.text('00:00');
+            tTime.text('00:00');
+
+            currAlbum = albums[currIndex];
+            currTrackName = trackNames[currIndex];
+            currArtwork = albumArtworks[currIndex];
+
+            audio.src = trackUrl[currIndex];
+            
+            nTime = 0;
+            bTime = new Date();
+            bTime = bTime.getTime();
+
+            if(flag != 0)
+            {
+                audio.play();
+                playerTrack.addClass('active');
+                albumArt.addClass('active');
+            
+                clearInterval(buffInterval);
+                checkBuffering();
+            }
+
+            albumName.text(currAlbum);
+            trackName.text(currTrackName);
+            albumArt.find('img.active').removeClass('active');
+            $('#'+currArtwork).addClass('active');
+            
+            bgArtworkUrl = $('#'+currArtwork).attr('src');
+
+            bgArtwork.css({'background-image':'url('+bgArtworkUrl+')'});
+        }
+        else
+        {
+            if( flag == 0 || flag == 1 )
+                --currIndex;
+            else
+                ++currIndex;
+        }
+    }
+  function setVolume(myVolume) {
+    audio.volume = myVolume;
+    }
+        $("#volumeval").slider({
+    min: 0,
+    max: 100,
+    value: 50,
+        range: "min",
+    slide: function(event, ui) {
+          $(this).next().css('width',9+ui.value/10);
+        setVolume(ui.value / 100);
+        if(ui.value==0)
+            {
+                $(this).next().children().attr('class','fa fa-volume-mute');
+               $(this).next().css('width','19px');
+                
+            }
+        else{
+                            $(this).next().children().attr('class','fa fa-volume-up');
+        }
+    }
+    });
+    function initPlayer()
+	{	
+        audio = new Audio();
+
+		selectTrack(0);
+		audio.volume=0.5;
+		audio.loop = false;
+		
+		playPauseButton.on('click',playPause);
+		
+		sArea.mousemove(function(event){ showHover(event); });
+		
+        sArea.mouseout(hideHover);
+        
+        sArea.on('click',playFromClickedPos);
+		
+        $(audio).on('timeupdate',updateCurrTime);
+
+        playPreviousTrackButton.on('click',function(){ selectTrack(-1);} );
+        playNextTrackButton.on('click',function(){ selectTrack(1);});
+	}
+    initPlayer();
+});
+    $(document).ready(function(){
+//             gay();
+       $('#img1').animate({marginLeft:500},1500); 
+        
+        $('#title').fadeIn(3000);
+        
+         $('#title1').css('opacity','0');
+    });
+          $(window).scroll(function() {
+              var isplayed=false;
+                    var scrollVal = $(this).scrollTop();
+                    console.log(scrollVal);
+                    if (scrollVal > 400) 
+                    {
+                      
+                     $('#newlove').fadeIn(1000);
+                        $('#img2 img').fadeIn(2000);
+                               $('#title2').animate({opacity:1},1500); 
+
+                    }
+              if (scrollVal < 240)
+                                      {
+//                                           $('#newlove').fadeOut(300);
+                                      }
+              if(scrollVal>1040)
+                {
+         
+                    $('#title3').animate({opacity:1},1500); 
+                 $('#img3').children().animate({marginLeft:500,opacity:1},1500);
+                  
+ 
+                }                                 
+              if(scrollVal>1600)
+                  {
+                        $('#title4').animate({opacity:1},1500); 
+                        $('#img4 img').fadeIn(500);
+                  }
+                
+                });
+        //----------------------------------------------//
+       
+      
+        audio.init();
+        //----------------------------------------------//
+    </script>
+<body>
+     <div id="logo">
+       
+            <a href="../index.html"> <img src="../_image/musicicon.png" id="icon"></a>
+        <h1 id="icontext"></h1>
+    </div>
+    <div id="header">
+
+        <div id="top5_singer_title">
+            <h2 style="font-size: 30px">today's top 5</h2>
+        </div>
+
+        <div id="logo">
+            <img src="">
+            <h1 id="icontext"></h1>
+
+        </div>
+        <div id="top5_singer">
+            <div id="top1" class="topsin">
+
+                <a href="" target="_blank"><img src="../_image/singer/drake.jpg" alt="" class="singer"></a>
+                <div id="name" class="singername">Drake</div>
+            </div>
+            <div id="top2" class="topsin">
+               <a href="" target="_blank"><img src="../_image/singer/theweeknd.jpg" alt="" class="singer"></a> 
+                <div id="name2" class="singername">The Weeknd</div>
+            </div>
+            <div id="top3" class="topsin">
+               <a href="" target="_blank"><img src="../_image/singer/jb.jpg" alt="" class="singer"></a> 
+                <div id="name3" class="singername">Justin Bieber</div>
+            </div>
+            <div id="top4" class="topsin">
+              <a href="" target="_blank"> <img src="../_image/singer/dualipa.jpg" alt="" class="singer"></a> 
+                <div id="name4" class="singername">Dua Lipa</div>
+            </div>
+
+            <div id="top5" class="topsin">
+              <a href="" target="_blank"><img src="../_image/singer/ariana.jpg" alt="" class="singer"></a> 
+                <div id="name5" class="singername">Ariana Grande</div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+        <div id="nav">
+        <div id="top10" class="navbar">
+       <div id="home">      <a href="../index.html" >Home</a></div>
+  
+        
+    
+     <div id="toplist">
+        
+           <div id="tit">    <p class="navtext" >Top 10</p>  <i class="fas fa-sort-down" id="sortdown"></i></div><div id="list"><div id="listsingle">   <a href="../top10single.html"  class="navtext_" >Single</a></div>
+                <div id="listsingle">
+                      <a href="../top10album.html" class="navtext_">Album</a>
+                </div></div> 
+                  
+         
+            
+
+            
+        </div>
+              </div>
+                   </div>
+    <div id="context" style="color: white">
+       
+        <div id="artmain">
+<!--
+           <div id="title"><h1>gay</h1></div>
+           <div id="author"><h2>韓國瑜</h2></div>
+-->
+           <div id="img1"><img src="xxx/1.jpg" alt=""></div>
+           <div id="title"><h1 style="color: #ffdedd;font-size: 30px;font-family: 微軟正黑體">飽受折磨卻藉此影響了世上無數人的一生 XXXTentacion</h1></div>
+            <div class="art" id="paragraph1 "style="">
+               <p> &nbsp;&nbsp;&nbsp;&nbsp;Jahseh Onfroy a.k.a XXXTentacion 是當今嘻哈產業中，最具爭議性及話題性的饒舌歌手之一，其強烈的個人特質與獨特嗓音，年紀輕輕就在網路音樂平台 SoundCloud 上擁有一大票死忠粉絲，但因為那放蕩不羈的個性導致背負了不少罪狀進而多次進出監獄。說來有趣，諸多的法律問題卻不影響其音樂發展。</p>
+            </div>
+            <div class="art" id="paragraph2">
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;X跟許多美國的街頭饒舌相同，他的童年並不完美，父親長期待在監獄，只剩母親獨自照料。因家庭經濟因素，主要是由祖母扶養長大，由於破碎的家庭關係，使得 X 並沒有接受到像其他孩子一樣的關愛，這樣的成長背景更影響了其性格。說到音樂 Jahseh Onfroy 的音樂素養可從小說起，對音樂充滿熱忱的他，喜愛聽重金屬、搖滾與嘻哈音樂，也促使 X 的姨媽將他送去音樂教室，算是開啟了他音樂之路的第一扇窗。</p>
+             
+            </div>
+           <div id="img2"><img src="xxx/2.jpg" alt=""></div>
+             <div id="title2"><h1 style="color: #ffdedd;font-size: 30px;font-family: 微軟正黑體">2014年—饒舌巨星之路</h1></div>
+              <div class="art" id="paragraph3">
+             <p> &nbsp;&nbsp;&nbsp;&nbsp;在2014年，已經在 SoundCloud 累積高人氣的 X 因疑似家暴懷孕女友與持有槍械被逮。但天意造化人，因為此事件的關係他在拘留中心結識了音樂上的知己－ Ski Mask The Slump God 深深影響了 X 對未來人生的目標，臭味相投的兩人在出獄後合作了知名單曲《FXCK》隨即在網路上造成轟動！即便音樂器材簡便，歌迷們卻十分買單，使得 X 並不受負面事件影響，再度嘗到走紅滋味，並接著於2015年以一首《Look At Me》聲名鵲起。</p>
+     
+            </div>
+             <div id="img3"><img src="xxx/qq.jpg" alt=""></div>
+            <div id="title3"><h1 style="color: #ffdedd;font-size: 30px;font-family: 微軟正黑體">改變許多人生命的單曲《SAD!》</h1></div>
+            <div class="art" id="paragraph4">
+                <p> &nbsp;&nbsp;&nbsp;&nbsp;XXXTentacion 之所以被譽為新生代音樂鬼才，不外乎是他那獨特的嗓音以及豐富多變的音樂風格。不單單使用嘻哈音樂嶄露頭角，X 更融入了節奏藍調與搖滾使得作品如虎添翼、獨樹一格，銷量更是屢創佳績。在2017年所發行的專輯《17》，在美國 Billboard 兩百大專輯排行榜中拿下第二名；隔年三月發布的專輯《？》更是驚為天人，奪下了 Billboard 200 的第一名傲視群雄，其中單曲《SAD!》及《Changes》在首週分別拿下告示牌排行中的第1名與第37名的好成績；死後發佈的專輯《Skins》，一釋出也再次登頂 Billboard 200。</p>
+     
+            </div>
+            <div id="img4"><img src="xxx/3.jpg" alt=""></div>
+            <div id="title4"><h1 style="color: #ffdedd;font-size: 30px;font-family: 微軟正黑體">決定改變自己卻葬身槍海</h1>
+               </div>
+                
+           <div class="art" id="paragraph5">
+                <p> &nbsp;&nbsp;&nbsp;&nbsp;故事轉眼到了2018年6月18日，一則新聞在嘻哈圈投下了顆震撼彈，X被槍殺了。眾人譁然，這則噩耗馬上傳遍世界。Jahseh Onfroy 約在下午四點左右離開位於為羅里達州的摩托車經銷店，隨即遭到兩名持槍歹徒靠近且發生了鬥爭，而不幸的 X 在這起搶案成了槍下亡魂。</p>
+                <br>
+                <br>
+                 <p> &nbsp;&nbsp;&nbsp;&nbsp;XXX創作的歌詞粗鄙低俗、離經叛道，但這些歌詞卻與許多人產生共鳴，藉此影響了世上無數人的一生。</p>
+               
+               
+           </div>
+            </div>
+           
+        
+            <div class="app-cover" id="newlove">
+       
+        <div id="player">
+            <div id="player-track">
+                <div id="album-name"></div>
+                <div id="track-name"></div>
+                      	<div id="volume">
+	
+		<div id="volumeval"></div>
+		<div id="volumeicon">
+	<i class="fa fa-volume-up"></i>
+	</div>
+	</div>
+                <div id="track-time">
+                    <div id="current-time"></div>
+                    <div id="track-length"></div>
+                </div>
+                <div id="s-area">
+                    <div id="ins-time"></div>
+                    <div id="s-hover"></div>
+                    <div id="seek-bar"></div>
+                </div>
+                </div>
+                <div id="player-content">
+                <div id="album-art">
+                    <img src="xxx/2.jpg" class="active" id="_1">
+                    <img src="xxx/sad.jpg" id="_2">
+                                     
+                    <div id="buffer-box">讀取中 ...</div>
+                </div>
+               <div id="player-controls">
+                    <div class="control">
+                        <div class="button" id="play-previous">
+                            <i class="fas fa-backward"></i>
+                        </div>
+                    </div>
+                    <div class="control">
+                        <div class="button" id="play-pause-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="control">
+                        <div class="button" id="play-next">
+                            <i class="fas fa-forward"></i>
+                        </div>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+        
+     </div>
+     </div>
+      </div>
+</body>
+
+</html>

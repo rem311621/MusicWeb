@@ -1,0 +1,199 @@
+@font-face {
+  font-family: Poppins;
+  src: url(https://fonts.googleapis.com/css?family=Poppins:400,700,900);
+}
+
+
+#_main{
+    width: 100%;
+    height: 730px;
+/*    background-color: wheat;*/
+    position: absolute;
+}
+#left_ui{
+    background-color: #fe8a71;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+}
+#top_ui_{
+        background-color: #907f6c;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    left: 50%;
+}
+#top_ui{
+    background-color: #483c32;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    left: 50%;
+}
+#bot_ui{
+    background-color: #1c1c1c;
+/*    opacity: 0.5;*/
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2
+}
+#singerpic{
+  width: 400px;  
+    height:500px;    
+    position: absolute;
+    top: 25%;
+/*    left: 12.5%;    */
+       right: 60.5%;
+    background-color: #483c32;
+    z-index: 1;
+/*      right:0;*/
+}
+#singerpic_mask{
+   background-color: #483c32;
+    opacity: 0;
+    position: absolute;
+  top: 25%;
+    left: 12.5%;
+    z-index: 0;
+    width: 400px;
+    height: 500px;
+}
+#aaa{
+    width: 400px;  
+    height:500px;
+    position: absolute;
+    top: 25%;
+    left: 12.5%;
+    background-color: #07031a;
+ z-index: 0;
+}
+#botmask{
+     background-color: #777b86;
+   opacity: 0;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+     z-index: -2;
+}
+#bot_pic{
+    position: absolute;
+    left: 57%;
+    top: 50%;
+     z-index: -1;
+  width: 640px;
+    height: 360px;
+opacity: 0;
+  
+}
+#data{
+    position: absolute;
+    top: 33%;
+    left: 17%;
+    z-index: 2;
+    font-family: Poppins;
+       
+    color: #c5b4a1;
+}
+#data h1{
+     opacity:0; 
+}
+#data h2{
+     opacity:0; 
+    font-size: 22px;
+}
+#info{
+     position: absolute;
+    top: -2.5%;
+    left: 10%;
+    z-index: 2;
+  color: #c5b4a1;
+/*    display: none;
+    */
+/*    opacity: 0*/
+}
+#info h1{
+    font-size: 50px;
+  opacity: 0;
+    z-index: 5;
+    font-family: Poppins;
+}
+#info p {
+    opacity: 0;
+    z-index: 2;
+    font-family: Poppins;
+    font-size: 20px;
+}
+#_icon{
+       position: absolute;
+
+    top: 80%;
+    left: 8%;
+    opacity: 0;
+}
+#_icon ul{
+      list-style: none;
+
+}
+#_icon ul li{
+ 
+display: inline-block;
+  
+}
+.icon{ width: 40px;
+        height: 40px;
+}
+#nextsongname{
+      position: absolute;
+       top: 54%;
+    left: 58.5%;
+    z-index: 2;
+  color: #c5b4a1;
+        font-family: Poppins;
+/*    opacity: 0;*/
+}
+#nextsongname h1{
+     
+    opacity: 0;
+}
+#playbtn{
+    border-radius: 100%;
+    border: 1px #ffffff solid;
+    position: absolute;
+    z-index: 1;
+    padding: 25px;
+    top: 26.5%;
+    left: 13.5%;
+    opacity: 0;
+    cursor: pointer;
+/*      display: none;*/
+}
+#nextbtn{
+    border-radius: 100%;
+    border: 1px #ffffff solid;
+    position: absolute;
+    z-index:1;
+    padding: 25px;
+    top: 55.5%;
+    left:  53%;
+    opacity: 0;
+    cursor: pointer;
+    
+}
+#albname{
+    
+}
+#albname h1{
+        opacity: 0;
+     position: absolute;
+       top: 10%;
+    left: 35%;
+    z-index: 2;
+  color: #c5b4a1;
+        font-family: Poppins;
+}
+

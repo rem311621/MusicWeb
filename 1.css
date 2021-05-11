@@ -1,0 +1,78 @@
+
+#volumeicon{
+    
+color: black;
+position: absolute;
+    width: 15px;
+    height: 16px;
+
+    /* opacity: 0.2; */
+   margin-top: 9px;
+    margin-left: 275px;
+      position: absolute;
+      text-overflow: clip;
+    overflow: hidden;
+    z-index: 100;
+}
+#volume {
+ 
+       position: absolute;
+    width: 100%;
+    margin-top: -65px;
+        margin-left: -180px;
+   
+}
+ .fa-volume-mute{
+/*       top: 9.5px;*/
+    position: absolute;
+/*    right: 112px;*/
+        z-index: 100;
+}
+    .fa-volume-down {
+        position: absolute;
+        margin-left: -50px;
+        top:15px;
+    }
+    
+    .fa-volume-up {
+/*           top: 9.5px;*/
+    position: absolute;
+      text-overflow: clip;
+/*    right: 110px;*/
+           z-index: 100;
+        
+    }
+#volumeval{
+    position: absolute;
+    left: 300px;
+   top: 15px;
+    margin: 0 auto;
+    height: 5px;
+    width: 20%;
+    background: #555;
+    border-radius: 15px;
+    
+ 
+}
+   .ui-slider-range-min {
+       
+        height: 5px;
+        width: 300px;
+        position: absolute;
+        background: $primary-color;
+        border: none;
+        border-radius: 10px;
+    outline: none;
+    }
+    
+    .ui-slider-handle {
+        width: 20px;
+    height: 20px;
+        border-radius: 20px;
+    background: #1c1c1c;
+    position: absolute;
+    margin-left: -8px;
+    margin-top: -8px;
+    cursor: pointer;
+    outline: none;
+    }

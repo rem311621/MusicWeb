@@ -1,0 +1,707 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>top 10 single</title>
+
+    <style>
+        body {
+            height: 1500px;
+        }
+
+        .singername {
+            display: none;
+        }
+
+        .navbar {
+            color: #ffffff;
+            margin-top: 100px;
+
+            font-size: 25px;
+            width: 80px;
+        }
+
+
+
+
+        h2 {
+            font-size: 30px;
+        }
+
+
+
+
+
+
+
+
+
+        #singleintrolink {
+            color: cornflowerblue;
+            font-family: 微軟正黑體;
+        }
+
+        #top10 {
+            height: 120px;
+
+
+        }
+
+        #top10 h1 {
+            width: 100px;
+            border-radius: 10px;
+            user-select: none;
+        }
+
+        #navsingle {
+            color: wheat;
+            position: absolute;
+            display: none;
+            top: 280px;
+        }
+
+        #navalbum {
+            display: none;
+            color: wheat;
+            /*         opacity: 0;*/
+            position: absolute;
+            top: 320px;
+        }
+
+        #hot10 {
+
+            width: 1000px;
+            height: 1000px;
+            margin-left: 305px;
+            margin-top: 250px;
+        }
+
+        #hot10>h1 {
+            margin: 0 auto;
+            display: block;
+            width: fit-content;
+            color: white;
+        }
+
+        #chart {
+            width: 800px;
+
+            height: 500px;
+            margin: 100px auto;
+
+        }
+
+        .billboard {
+            border: 1px #4b4b4b solid;
+            width: auto;
+            height: 100px;
+        }
+
+        .billboard1 {
+            border-left: 1px #4b4b4b solid;
+
+            border-right: 1px #4b4b4b solid;
+            width: auto;
+            height: 100px;
+        }
+
+        .billboard2 {
+            border-left: 1px #4b4b4b solid;
+
+            border-top: 1px #4b4b4b solid;
+            border-right: 1px #4b4b4b solid;
+            width: auto;
+            height: 100px;
+        }
+
+        li {
+            list-style-type: none;
+            color: white;
+        }
+
+        .table {
+
+            border: 1px #1c1c1c solid;
+            height: 100px;
+
+        }
+
+        ._table {
+            border: 1px #1c1c1c solid;
+            height: 0px;
+            display: none;
+        }
+
+        ._no {
+            padding: 0;
+            font-size: 50px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            margin-top: 25px;
+            margin-left: 20px;
+            float: left;
+        }
+
+        .infochart {
+            margin-top: 31px;
+            width: fit-content;
+            float: left;
+            margin-left: -70px;
+        }
+
+        .songname {
+
+            margin-left: 100px;
+            font-size: 20px;
+        }
+
+        ._singername {
+            margin-left: 100px;
+            font-size: 15px;
+        }
+
+        ._songimg {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50%;
+            width: 100px;
+            float: right;
+            height: 100px;
+
+        }
+
+        ._songimg img {
+            width: 100px;
+            height: 100px;
+        }
+
+        ._player {
+            width: 300px;
+            height: 280px;
+            float: left;
+            display: none
+        }
+
+        ._closeimg {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50%;
+            width: 32px;
+            height: 32px;
+            float: right;
+            margin-right: -100px;
+            /*    margin-top: 55px;*/
+            display: none;
+            cursor: pointer;
+        }
+
+        .streamicon {
+            width: 80;
+            height: 80;
+            border-radius: 20px;
+            margin-left: 50px;
+            margin-top: 50px;
+            display: none;
+        }
+
+        .buy {
+            position: absolute;
+            display: none;
+            margin-left: 125px;
+            margin-top: 175px;
+        }
+
+        .buyicon {
+            position: absolute;
+            margin-left: 300px;
+            margin-top: -55px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .buy p {
+            font-family: sans-serif;
+            position: absolute;
+            width: fit-content;
+            margin-left: 297px;
+            margin-top: -15px;
+        }
+
+        .buyinfo {
+            position: fixed;
+            top: 90%;
+            left: 48%;
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            display: none;
+
+        }
+
+        .buyinfo {
+            color: black;
+        }
+
+        #order {
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            width: 65%;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        #order a {
+            color: white;
+            font-size: 25px;
+        }
+    </style>
+    <link rel="stylesheet" href="_css/animate.min.css">
+    <link href="_css/site.css" rel="stylesheet">
+    <link href="_css/index.css" rel="stylesheet">
+    <link href="_css/jquery-ui.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/cart.css">
+    <script src="_js/jquery.min.js"></script>
+    <script src="_js/jquery-ui.min.js"></script>
+    <script src="_js/jquery.lettering.js"></script>
+    <script src="_js/jquery.textillate.js"></script>
+    <script src="_js/jQueryRotate.2.1.js"></script>
+    <script src="_js/index.js"></script>
+    <script src="js/link.js"></script>
+    <script src="js/top5.js"></script>
+    <script src="js/cart.js"></script>
+    <link rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <script>
+        var items_ = [];
+        var streched = false;
+        var _flag = false;
+        $(document).ready(function () {
+
+
+
+            $.getJSON('top10.json', function (data) {
+
+
+                $.each(data, function (key, val) {
+                    items_.push(val);
+                });
+                var t = 0;
+                var g = 0;
+                var k = 0;
+                $('.songname').each(function () {
+
+                    console.log(items_[0][t])
+                    $(this).html(items_[0][t]);
+                    t++;
+                });
+                $('._songimg').children().each(function () {
+
+                    console.log(items_[1][g]);
+                    $(this).attr('src', items_[1][g]);
+                    g++;
+                });
+                $('._singername').each(function () {
+
+                    console.log(items_[2][k])
+                    $(this).html(items_[2][k]);
+                    k++;
+                });
+            });
+
+
+
+            $(function () {
+
+                $('#top10').mouseover(function () {
+                    $(this).children().stop();
+                    $(this).children('h2').fadeIn(500);
+                    $(this).children('h1').animate({ backgroundColor: '#363636' })
+                });
+                $('#top10').mouseout(function () {
+                    $(this).children().stop();
+                    $(this).children('h1').animate({ backgroundColor: '#000000' })
+                    $(this).children('h2').fadeOut(500);
+
+                });
+                $('#single').show();
+
+                $('._songimg').click(function () {
+
+                    var ff = this._flag;
+                    this._flag = !this._flag;
+
+
+
+                    //                    $(this).parent().parent().after('<li><div class="_table"><div>55</div></div></li>');               
+                    $(this).parent().animate({ height: 280 });
+                    //                     $(this).animate({width:125,height:125});
+                    $(this).prev().prev('._no').animate({ marginLeft: 40, marginTop: 50 });
+                    $(this).prev().animate({ marginTop: 55 }); $(this).children().css('width', '75px').css('height', '75px').css('border-radius', '50%').css('margin-right', '60px');
+                    $(this).animate({ marginTop: 35 });
+                    $(this).next().fadeIn(500);
+                    $(this).prev().children().children().show();
+                    $(this).prev().children('.buy').show(); $(this).prev().prev().prev('iframe').show();
+
+
+
+                    //  $(this).animate({width:150,height:150});
+
+
+                });
+                $('._closeimg').mouseover(function () {
+                    $(this).css('background-color', 'rgba(255,255,255,0.1)');
+                });
+                $('._closeimg').mouseout(function () {
+                    $(this).css('background-color', 'black');
+                });
+                $('._closeimg').click(function () {
+                    $(this).prev().prev().children().children().hide();
+                    $(this).parent().animate({ height: 100 });
+                    $(this).next().hide();
+                    $(this).prev().prev().prev('._no').animate({ marginLeft: 20, marginTop: 25 });
+                    $(this).prev().prev().animate({ marginTop: 31 }); $(this).prev().children().css('width', '100px').css('height', '100px').css('border-radius', '0%').css('margin-right', '0px');
+                    $(this).prev().animate({ marginTop: 0 });
+                    $(this).prev().children('.buy').hide(); $(this).prev().prev().prev().prev('iframe').hide();
+                    $(this).hide();
+
+                });
+
+            });
+
+        });
+
+
+    </script>
+</head>
+
+<body>
+    <div id="logo">
+        <a href="index.html"> <img src="_image/musicicon.png" id="icon"></a>
+
+        <h1 id="icontext"></h1>
+    </div>
+    <div id="header">
+
+        <div id="top5_singer_title">
+            <h2 style="font-size: 30px">today's top 5</h2>
+        </div>
+
+        <div id="logo">
+            <img src="">
+            <h1 id="icontext"></h1>
+
+        </div>
+        <div id="top5_singer" style="user-select:none;">
+            <div id="top1" class="topsin">
+                <a href=""> <img src="_image/singer/drake.jpg" alt="" class="singer"></a>
+
+                <div id="name" class="singername">Drake</div>
+            </div>
+            <div id="top2" class="topsin"><a href="" target="_blank"> <img src="_image/singer/theweeknd.jpg" alt=""
+                        class="singer"></a>
+
+                <div id="name2" class="singername">The Weeknd</div>
+            </div>
+            <div id="top3" class="topsin">
+                <a href="" target="_blank"><img src="_image/singer/jb.jpg" alt="" class="singer"></a>
+                <div id="name3" class="singername">Justin Bieber</div>
+            </div>
+            <div id="top4" class="topsin">
+                <a href="singer/dualipa.html" target="_blank"><img src="_image/singer/dualipa.jpg" alt=""
+                        class="singer"></a>
+
+                <div id="name4" class="singername">Dua Lipa</div>
+            </div>
+
+            <div id="top5" class="topsin">
+                <a href="" target="_blank"><img src="_image/singer/ariana.jpg" alt="" class="singer"></a>
+                <div id="name5" class="singername">Ariana Grande</div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <div id="nav">
+        <div id="top10" class="navbar">
+            <div id="home"> <a href="index.html">Home</a></div>
+
+
+
+            <div id="toplist">
+
+                <div id="tit">
+                    <p class="navtext">Top 10</p> <i class="fas fa-sort-down" id="sortdown"></i>
+                </div>
+                <div id="list">
+                    <div id="listsingle"> <a href="top10single.html" class="navtext_">Single</a></div>
+                    <div id="listsingle">
+                        <a href="top10album.html" class="navtext_">Album</a>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+        
+    </div>
+    <div id="hot10">
+        <h1>Top 10 Single</h1>
+        <div id="chart">
+            <ol>
+                <li>
+                    <div class="table">
+                        <iframe src="https://open.spotify.com/embed/track/7ju97lgwC2rKQ6wwsf9no9" width="300"
+                            height="280" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                            class="_player"></iframe>
+                        <div class="_no">1</div>
+                        <div class="infochart">
+                            <div class="songname">Rain On Me</div>
+                            <div class="_singername">Lady Gaga &amp; Ariana Grande</div>
+                            <!--                   <div class="buy">     <i class="fas fa-shopping-cart buyicon"></i><p>$1.99</p></div>-->
+                            <a href="https://www.youtube.com/watch?v=AoAm4om0wTs" target="_blank"><img
+                                    src="_image/ICON/yt.png" alt="" class="streamicon"></a>
+                            <a href="https://open.spotify.com/track/24ySl2hOPGCDcxBxFIqWBu?si=QcmlwockTnK0HRgt4eTEJQ"
+                                target="_blank"><img src="_image/ICON/spot.png" alt="" class="streamicon"></a>
+
+
+
+                        </div>
+                        <div class="_songimg"><img
+                                src="./single/rain.jpg"
+                                alt=""></div>
+
+                        <div class="_closeimg" style="background-image:url(_image/ICON/close.png)"></div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="table">
+                        <iframe src="https://open.spotify.com/embed/track/5v4GgrXPMghOnBBLmveLac" width="300"
+                            height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                            class="_player"></iframe>
+                        <div class="_no">2</div>
+                        <div class="infochart">
+                            <div class="songname">Savage</div>
+                            <div class="_singername">Megan Thee Stallion Ft. Beyonce</div><a
+                                href="https://www.youtube.com/watch?v=lEIqjoO0-Bs" target="_blank"><img
+                                    src="_image/ICON/yt.png" alt="" class="streamicon"></a>
+                            <a href="https://open.spotify.com/track/5v4GgrXPMghOnBBLmveLac?si=9Vhvj2XaS9uUElyCLqYVfA"
+                                target="_blank"><img src="_image/ICON/spot.png" alt="" class="streamicon"></a>
+                        </div>
+                        <div class="_songimg"><img
+                                src="./single/savage.jpg"
+                                alt=""></div>
+                        <div class="_closeimg" style="background-image:url(_image/ICON/close.png)"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="_table" id="333333">2_</div>
+                </li>
+                <li>
+                    <div class="table">
+                        <iframe src="https://open.spotify.com/embed/track/7ytR5pFWmSjzHJIeQkgog4" width="300"
+                            height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                            class="_player"></iframe>
+                        <div class="_no">3</div>
+                        <div class="infochart">
+                            <div class="songname">Rockstar</div>
+                            <div class="_singername">DaBaby Ft. Roddy Ricch</div><a
+                                href="https://www.youtube.com/watch?v=83xBPCw5hh4" target="_blank"><img
+                                    src="_image/ICON/yt.png" alt="" class="streamicon"></a>
+                            <a href="https://open.spotify.com/track/7ytR5pFWmSjzHJIeQkgog4?si=7AAa3MedSiC3kH8DrLZz_w"
+                                target="_blank"><img src="_image/ICON/spot.png" alt="" class="streamicon"></a>
+                        </div>
+
+                        <div class="_songimg"><img
+                                src="./single/rockstar.jpg"
+                                alt=""></div>
+                        <div class="_closeimg" style="background-image:url(_image/ICON/close.png)"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="_table" id="333333">3_</div>
+                </li>
+                <li>
+                    <div class="table">
+                        <iframe src="https://open.spotify.com/embed/track/0VjIjW4GlUZAMYd2vXMi3b" width="300"
+                            height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                            class="_player"></iframe>
+                        <div class="_no">4</div>
+                        <div class="infochart">
+                            <div class="songname">Blinding Lights</div>
+                            <div class="_singername">The Weeknd</div><a
+                                href="https://www.youtube.com/watch?v=4NRXx6U8ABQ" target="_blank"><img
+                                    src="_image/ICON/yt.png" alt="" class="streamicon"></a>
+                            <a href="https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b?si=2J37RiaaQgeJxf2SOqwehA"
+                                target="_blank"><img src="_image/ICON/spot.png" alt="" class="streamicon"></a>
+                        </div>
+                        <div class="_songimg"><img
+                                src="./single/blinding.jpg"
+                                alt=""></div>
+                        <div class="_closeimg" style="background-image:url(_image/ICON/close.png)"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="_table" id="333333">4_</div>
+                </li>
+                <li>
+                    <div class="table">
+                        <iframe src="https://open.spotify.com/embed/track/3Dv1eDb0MEgF93GpLXlucZ" width="300"
+                            height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                            class="_player"></iframe>
+                        <div class="_no">5</div>
+                        <div class="infochart">
+                            <div class="songname">Say So
+
+
+                            </div>
+                            <div class="_singername">Doja Cat Ft. Nicki Minaj</div><a
+                                href="https://www.youtube.com/watch?v=pok8H_KF1FA" target="_blank"><img
+                                    src="_image/ICON/yt.png" alt="" class="streamicon"></a>
+                            <a href="https://open.spotify.com/track/3Dv1eDb0MEgF93GpLXlucZ?si=aNDCUKJ7R8yVlLuhDpaXfQ"
+                                target="_blank"><img src="_image/ICON/spot.png" alt="" class="streamicon"></a>
+                        </div>
+
+                        <div class="_songimg"><img
+                                src="./single/saygo.jpg"
+                                alt=""></div>
+                        <div class="_closeimg" style="background-image:url(_image/ICON/close.png)"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="_table" id="333333">5_</div>
+                </li>
+                <li>
+                    <div class="table">
+                        <iframe src="https://open.spotify.com/embed/track/127QTOFJsJQp5LbJbu3A1y" width="300"
+                            height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                            class="_player"></iframe>
+                        <div class="_no">6</div>
+                        <div class="infochart">
+                            <div class="songname">Toosie Slide
+                            </div>
+                            <div class="_singername">Drake</div><a href="" target="_blank"><img src="_image/ICON/yt.png"
+                                    alt="" class="streamicon"></a>
+                            <a href="" target="_blank"><img src="_image/ICON/spot.png" alt="" class="streamicon"></a>
+                        </div>
+
+                        <div class="_songimg"><img
+                                src="https://charts-static.billboard.com/img/2020/04/drake-p3d-toosie-slide-e5w-155x155.jpg"
+                                alt=""></div>
+                        <div class="_closeimg" style="background-image:url(_image/ICON/close.png)"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="_table" id="333333">6_</div>
+                </li>
+                <li>
+                    <div class="table">
+                        <iframe src="https://open.spotify.com/embed/track/3PfIrDoz19wz7qK7tYeu62" width="300"
+                            height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                            class="_player"></iframe>
+                        <div class="_no">7</div>
+                        <div class="infochart">
+                            <div class="songname">Don't Start Now
+                            </div>
+                            <div class="_singername">Dua Lipa</div><a href="https://www.youtube.com/watch?v=oygrmJFKYZY"
+                                target="_blank"><img src="_image/ICON/yt.png" alt="" class="streamicon"></a>
+                            <a href="https://open.spotify.com/track/3PfIrDoz19wz7qK7tYeu62?si=fDa9x0DUT2aHVidAzh8IuA"
+                                target="_blank"><img src="_image/ICON/spot.png" alt="" class="streamicon"></a>
+                        </div>
+                        <div class="_songimg"><img
+                                src="https://charts-static.billboard.com/img/2019/11/dua-lipa-eqf-dont-start-now-q9p-155x155.jpg"
+                                alt=""></div>
+
+                        <div class="_closeimg" style="background-image:url(_image/ICON/close.png)"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="_table" id="333333">7_</div>
+                </li>
+                <li>
+                    <div class="table">
+                        <iframe src="https://open.spotify.com/embed/track/0nbXyq5TXYPCO7pr3N8S4I" width="300"
+                            height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                            class="_player"></iframe>
+                        <div class="_no">8</div>
+                        <div class="infochart">
+                            <div class="songname">The Box </div>
+                            <div class="_singername">Roddy Ricch</div><a href="" target="_blank"><img
+                                    src="_image/ICON/yt.png" alt="" class="streamicon"></a>
+                            <a href="" target="_blank"><img src="_image/ICON/spot.png" alt="" class="streamicon"></a>
+                        </div>
+
+                        <div class="_songimg">
+                        <img src="https://charts-static.billboard.com/img/2019/12/roddy-ricch-eqp-the-box-2k7-155x155.jpg" alt="">
+                           
+                        </div>
+                        <div class="_closeimg" style="background-image:url(_image/ICON/close.png)"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="_table" id="333333">8_</div>
+                </li>
+                <li>
+                    <div class="table">
+                        <iframe src="https://open.spotify.com/embed/track/364dI1bYnvamSnBJ8JcNzN" width="300"
+                            height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                            class="_player"></iframe>
+                        <div class="_no">9</div>
+                        <div class="infochart">
+                            <div class="songname">
+                                Intentions</div>
+                            <div class="_singername">Justin Bieber Ft. Quavo</div><a
+                                href="https://www.youtube.com/watch?v=3AyMjyHu1bA" target="_blank"><img
+                                    src="_image/ICON/yt.png" alt="" class="streamicon"></a>
+                            <a href="https://open.spotify.com/track/364dI1bYnvamSnBJ8JcNzN?si=UR3akdYtRn-E-TXv-HfvBA"
+                                target="_blank"><img src="_image/ICON/spot.png" alt="" class="streamicon"></a>
+                        </div>
+
+                        <div class="_songimg">
+                            <img src="https://charts-static.billboard.com/img/2020/02/justin-bieber-09y-intentions-w81-155x155.jpg" alt="">
+                        </div>
+                        <div class="_closeimg" style="background-image:url(_image/ICON/close.png)"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="_table" id="333333">9_</div>
+                </li>
+                <li>
+                    <div class="table">
+                        <iframe src="https://open.spotify.com/embed/track/5yY9lUy8nbvjM1Uyo1Uqoc" width="300"
+                            height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                            class="_player"></iframe>
+                        <div class="_no">10</div>
+                        <div class="infochart">
+                            <div class="songname"> Life Is Good
+                            </div>
+                            <div class="_singername">Future Ft. Drake</div><a
+                                href="https://www.youtube.com/watch?v=l0U7SxXHkPY" target="_blank"><img
+                                    src="_image/ICON/yt.png" alt="" class="streamicon"></a>
+                            <a href="https://open.spotify.com/track/5yY9lUy8nbvjM1Uyo1Uqoc?si=T_VNSWPxRw2neKW6ztWDbg"
+                                target="_blank"><img src="_image/ICON/spot.png" alt="" class="streamicon"></a>
+                        </div>
+
+                        <div class="_songimg">
+                            <img src="https://charts-static.billboard.com/img/2020/01/future-tsu-life-is-good-rko-155x155.jpg" alt="">
+                        </div>
+                        <div class="_closeimg" style="background-image:url(_image/ICON/close.png)"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="_table" id="333333">_10</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</body>
+
+</html>

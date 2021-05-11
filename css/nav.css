@@ -1,0 +1,8 @@
+    #nav{
+            width: 150px;
+    /* background-color: #111111; */
+    background-color: #000000;
+    height: 2000px;
+    border-right: 1px #1c1c1c solid;
+    float: left;
+    }

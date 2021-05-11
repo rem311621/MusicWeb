@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eastside</title>
+    
+        <link rel="stylesheet" href="../_css/animate.min.css">
+    <link href="../_css/site.css" rel="stylesheet">
+    <link href="../_css/index.css" rel="stylesheet">
+    <link href="../_css/jquery-ui.min.css" rel="stylesheet">
+    <script src="../_js/jquery.min.js"></script>
+    <script src="../_js/jquery-ui.min.js"></script>
+    <script src="../_js/jquery.lettering.js"></script>
+    <script src="../_js/jquery.textillate.js"></script>
+    <script src="../_js/jQueryRotate.2.1.js"></script>
+    <script src="../_js/index.js"></script>
+   <link rel="stylesheet" href="../css/nav.css">
+    <script src="../js/nav.js"></script>
+    <script src="../_js/build/mediaelement-and-player.min.js"></script>
+    <script src="../js/link.js"></script>
+      <script src="../js/link2.js"></script>
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" href="../css/mediaelementplayer.min.css">
+<link rel="stylesheet" href="../css/music.css">
+<script src="../_js/music.js"></script>
+<link rel="stylesheet" href="../css/music2.css">
+<!--<script src="../js/music2.js"></script>-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+
+  
+<!--<script type="text/javascript" src="../js/music2.js" charset="UTF-8"></script>-->
+</head>
+
+<style>
+   
+    #context{
+        color: white;
+    margin-top: 160px;
+    margin-left: 350px;
+height: 1700px;
+    width:1080px;
+    }
+    #title{
+           width: 380px; 
+  
+    float: left;
+    margin-right: 500px;
+   margin-top: 120px;
+        display: none;
+    }
+    #img1,#img1 img{
+       position: absolute;
+            margin-top: 40px;
+width: 333px;
+        height: 500px;
+    }
+    #img2 img{
+           position: absolute;
+  width: 219px;
+        height: 314px;
+      margin-top: 280px;
+    margin-left: 500px;
+        display: none;
+    }
+    #img3 img{
+          position: absolute;
+       height: 314px;
+      margin-top: 280px;
+          margin-top: 280px;
+/*    margin-left: 500px;*/
+       margin-left: 750px;
+        opacity: 0;
+    }
+    #img4 img{
+        position: absolute;
+               height: 314px;
+      margin-top: 320px; 
+        margin-left: 500px;
+    }
+    .art{
+     width: 400px;
+    font-family: 微軟正黑體;
+/*        margin-top: 200px;*/
+/*        float: left*/
+    }
+    #paragraph2{
+        margin-top: 50px;
+    }
+    #title2{
+        margin-top: 300px;
+  opacity: 0;
+    }
+    #newlove{
+        position: fixed;
+    top: 600px;
+        left: 1000px;
+        display: none;
+    }
+    #title3{
+        margin-top: 300px;
+  opacity: 0;
+    }
+    #title4{
+        margin-top: 300px;
+   
+          opacity: 0;
+    }
+    #paragraph5{
+              height: 500px;
+    }
+     .navtext{
+           color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-family: sans-serif;
+/*            float: left;*/
+
+        }
+         
+        .navtext_{
+      color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-family: sans-serif;
+/*            float: left;*/
+
+            
+                margin-top: 15px;
+        }
+        .navtext a{
+              color: wheat;
+                font-family: sans-serif;
+                     text-decoration: none;
+        }
+        #toplist{
+              
+                font-family: sans-serif;
+                     text-decoration: none;
+            margin-top: 20px;
+       
+        }
+        #home{
+              color: wheat;
+           border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    width: 65%;
+    margin: 0 auto;
+        }
+        #home a{
+               color: wheat;
+                font-family: sans-serif;
+                     text-decoration: none;
+        }
+        #tit{
+              border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    width: 65%;
+    margin: 0 auto; 
+         overflow: hidden;
+            z-index: 2;
+                    cursor: pointer;
+        }
+        #listsingle{ 
+        
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px;
+     width: 55%;
+    margin: 0 30px;
+    float: right;
+        }
+        #sortdown{
+                position: absolute;
+   margin-top: -31px;
+    margin-left: 85px;
+            z-index: 1;
+            cursor: pointer;
+        }
+        #list
+        {
+            overflow: hidden;
+           display: none;
+        }
+      #nav {
+            width: 150px;
+            /*            background-color: #111111;
+            */
+            background-color: #000000;
+            height: 100%;
+            border-right: 1px #1c1c1c solid;
+            float: left;
+            overflow: visible;
+        }
+    #top10{
+            width: 151px;
+    height: 120px;
+    font-family: Poppins;
+    position: absolute;
+    }
+     #nav{
+         border-right: 1px #1c1c1c solid;
+        height: 1500px;
+    }
+    </style>
+<!--  <script src="../js/music2.js"></script>-->
+    <script>
+         isplayed=false;
+$(function()
+{
+       var items = [];
+                   $.getJSON('../top5.json', function(data) {
+ 
+ 
+  $.each(data, function(key,val) {
+    items.push(val);
+  });
+                         var t=0;
+                       var g=0;
+  $('.singername').each(function(){
+
+    console.log(items[0][t])
+               $(this).html(items[0][t]);
+                       t++;
+            });
+  $('.topsin').children().children().each(function(){
+
+
+
+               $(this).attr('src',items[1][g]);
+                       g++;
+            });
+
+});
+    
+    
+
+
+                        playPause();
+  
+    var playerTrack = $("#player-track"), bgArtwork = $('#bg-artwork'), bgArtworkUrl, albumName = $('#album-name'), trackName = $('#track-name'), albumArt = $('#album-art'), sArea = $('#s-area'), seekBar = $('#seek-bar'), trackTime = $('#track-time'), insTime = $('#ins-time'), sHover = $('#s-hover'), playPauseButton = $("#play-pause-button"),  i = playPauseButton.find('i'), tProgress = $('#current-time'), tTime = $('#track-length'), seekT, seekLoc, seekBarPos, cM, ctMinutes, ctSeconds, curMinutes, curSeconds, durMinutes, durSeconds, playProgress, bTime, nTime = 0, buffInterval = null, tFlag = false, albums = ['Eastside'], trackNames = ['benny blanco, Halsey & Khalid'], albumArtworks = ['_1'], trackUrl = ['east.mp3'], playPreviousTrackButton = $('#play-previous'), playNextTrackButton = $('#play-next'), currIndex = -1;
+
+    function playPause()
+    {
+        setTimeout(function()
+        {
+            if(audio.paused)
+            {
+                playerTrack.addClass('active');
+                albumArt.addClass('active');
+                checkBuffering();
+                i.attr('class','fas fa-pause');
+                audio.play();
+            }
+            else
+            {
+                playerTrack.removeClass('active');
+                albumArt.removeClass('active');
+                clearInterval(buffInterval);
+                albumArt.removeClass('buffering');
+                i.attr('class','fas fa-play');
+                audio.pause();
+            }
+        },300);
+    }
+
+    	
+	function showHover(event)
+	{
+		seekBarPos = sArea.offset(); 
+		seekT = event.clientX - seekBarPos.left;
+		seekLoc = audio.duration * (seekT / sArea.outerWidth());
+		
+		sHover.width(seekT);
+		
+		cM = seekLoc / 60;
+		
+		ctMinutes = Math.floor(cM);
+		ctSeconds = Math.floor(seekLoc - ctMinutes * 60);
+		
+		if( (ctMinutes < 0) || (ctSeconds < 0) )
+			return;
+		
+        if( (ctMinutes < 0) || (ctSeconds < 0) )
+			return;
+		
+		if(ctMinutes < 10)
+			ctMinutes = '0'+ctMinutes;
+		if(ctSeconds < 10)
+			ctSeconds = '0'+ctSeconds;
+        
+        if( isNaN(ctMinutes) || isNaN(ctSeconds) )
+            insTime.text('--:--');
+        else
+		    insTime.text(ctMinutes+':'+ctSeconds);
+            
+		insTime.css({'left':seekT,'margin-left':'-21px'}).fadeIn(0);
+		
+	}
+
+    function hideHover()
+	{
+        sHover.width(0);
+        insTime.text('00:00').css({'left':'0px','margin-left':'0px'}).fadeOut(0);		
+    }
+    
+    function playFromClickedPos()
+    {
+        audio.currentTime = seekLoc;
+		seekBar.width(seekT);
+		hideHover();
+    }
+
+    function updateCurrTime()
+	{
+        nTime = new Date();
+        nTime = nTime.getTime();
+
+        if( !tFlag )
+        {
+            tFlag = true;
+            trackTime.addClass('active');
+        }
+
+		curMinutes = Math.floor(audio.currentTime / 60);
+		curSeconds = Math.floor(audio.currentTime - curMinutes * 60);
+		
+		durMinutes = Math.floor(audio.duration / 60);
+		durSeconds = Math.floor(audio.duration - durMinutes * 60);
+		
+		playProgress = (audio.currentTime / audio.duration) * 100;
+		
+		if(curMinutes < 10)
+			curMinutes = '0'+curMinutes;
+		if(curSeconds < 10)
+			curSeconds = '0'+curSeconds;
+		
+		if(durMinutes < 10)
+			durMinutes = '0'+durMinutes;
+		if(durSeconds < 10)
+			durSeconds = '0'+durSeconds;
+        
+        if( isNaN(curMinutes) || isNaN(curSeconds) )
+            tProgress.text('00:00');
+        else
+		    tProgress.text(curMinutes+':'+curSeconds);
+        
+        if( isNaN(durMinutes) || isNaN(durSeconds) )
+            tTime.text('00:00');
+        else
+		    tTime.text(durMinutes+':'+durSeconds);
+        
+        if( isNaN(curMinutes) || isNaN(curSeconds) || isNaN(durMinutes) || isNaN(durSeconds) )
+            trackTime.removeClass('active');
+        else
+            trackTime.addClass('active');
+
+        
+		seekBar.width(playProgress+'%');
+		
+		if( playProgress == 100 )
+		{
+			i.attr('class','fa fa-play');
+			seekBar.width(0);
+            tProgress.text('00:00');
+            albumArt.removeClass('buffering').removeClass('active');
+            clearInterval(buffInterval);
+		}
+    }
+    
+    function checkBuffering()
+    {
+        clearInterval(buffInterval);
+        buffInterval = setInterval(function()
+        { 
+            if( (nTime == 0) || (bTime - nTime) > 1000  )
+                albumArt.addClass('buffering');
+            else
+                albumArt.removeClass('buffering');
+
+            bTime = new Date();
+            bTime = bTime.getTime();
+
+        },100);
+    }
+
+    function selectTrack(flag)
+    {
+        if( flag == 0 || flag == 1 )
+            ++currIndex;
+        else
+            --currIndex;
+
+        if( (currIndex > -1) && (currIndex < albumArtworks.length) )
+        {
+            if( flag == 0 )
+                i.attr('class','fa fa-play');
+            else
+            {
+                albumArt.removeClass('buffering');
+                i.attr('class','fa fa-pause');
+            }
+
+            seekBar.width(0);
+            trackTime.removeClass('active');
+            tProgress.text('00:00');
+            tTime.text('00:00');
+
+            currAlbum = albums[currIndex];
+            currTrackName = trackNames[currIndex];
+            currArtwork = albumArtworks[currIndex];
+
+            audio.src = trackUrl[currIndex];
+            
+            nTime = 0;
+            bTime = new Date();
+            bTime = bTime.getTime();
+
+            if(flag != 0)
+            {
+                audio.play();
+                playerTrack.addClass('active');
+                albumArt.addClass('active');
+            
+                clearInterval(buffInterval);
+                checkBuffering();
+            }
+
+            albumName.text(currAlbum);
+            trackName.text(currTrackName);
+            albumArt.find('img.active').removeClass('active');
+            $('#'+currArtwork).addClass('active');
+            
+            bgArtworkUrl = $('#'+currArtwork).attr('src');
+
+            bgArtwork.css({'background-image':'url('+bgArtworkUrl+')'});
+        }
+        else
+        {
+            if( flag == 0 || flag == 1 )
+                --currIndex;
+            else
+                ++currIndex;
+        }
+    }
+
+    function initPlayer()
+	{	
+        audio = new Audio();
+
+		selectTrack(0);
+		
+		audio.loop = false;
+		
+		playPauseButton.on('click',playPause);
+		
+		sArea.mousemove(function(event){ showHover(event); });
+		
+        sArea.mouseout(hideHover);
+        
+        sArea.on('click',playFromClickedPos);
+		
+        $(audio).on('timeupdate',updateCurrTime);
+
+        playPreviousTrackButton.on('click',function(){ selectTrack(-1);} );
+        playNextTrackButton.on('click',function(){ selectTrack(1);});
+	}
+    initPlayer();
+});
+    $(document).ready(function(){
+          $('#top1').children('a').attr('href','../singer/drake.html').attr('target','_blank');   
+    console.log(123);
+       $('#top2').children('a').attr('href','../singer/theweeknd.html').attr('target','_blank');    $('#top3').children('a').attr('href','../singer/jb.html').attr('target','_blank');
+     $('#top4').children('a').attr('href','../singer/dualipa.html').attr('target','_blank');
+     $('#top5').children('a').attr('href','../singer/drake.html').attr('target','_blank');
+//             gay();
+        $('#newlove').fadeIn(1000);
+       $('#img1').animate({marginLeft:500},1500); 
+        
+        $('#title').fadeIn(3000);
+        
+         $('#title1').css('opacity','0');
+    });
+          $(window).scroll(function() {
+              var isplayed=false;
+                    var scrollVal = $(this).scrollTop();
+                    console.log(scrollVal);
+                    if (scrollVal > 400) 
+                    {
+                      
+                     
+                        $('#img2 img').fadeIn(2000);
+                               $('#title2').animate({opacity:1},1500); 
+
+                    }
+              if (scrollVal < 240)
+                                      {
+//                                           $('#newlove').fadeOut(300);
+                                      }
+              if(scrollVal>883)
+                {
+        
+                    $('#title3').animate({opacity:1},1500); 
+                 $('#img3').children().animate({marginLeft:500,opacity:1},1500);
+                  
+ 
+                }                                 
+
+                  
+                });
+        //----------------------------------------------//
+       
+      
+        audio.init();
+        //----------------------------------------------//
+    </script>
+<body>
+     <div id="logo">
+       <a href="../index.html"> <img src="../_image/musicicon.png" id="icon"></a>
+       
+        <h1 id="icontext"></h1>
+    </div>
+    <div id="header">
+
+        <div id="top5_singer_title">
+            <h2 style="font-size: 30px">today's top 5</h2>
+        </div>
+
+        <div id="logo">
+            <img src="">
+            <h1 id="icontext"></h1>
+
+        </div>
+        <div id="top5_singer">
+            <div id="top1" class="topsin">
+
+                <a href="" target="_blank"><img src="../_image/singer/drake.jpg" alt="" class="singer"></a>
+                <div id="name" class="singername">Drake</div>
+            </div>
+            <div id="top2" class="topsin">
+               <a href="" target="_blank"><img src="../_image/singer/theweeknd.jpg" alt="" class="singer"></a> 
+                <div id="name2" class="singername">The Weeknd</div>
+            </div>
+            <div id="top3" class="topsin">
+               <a href="" target="_blank"><img src="../_image/singer/jb.jpg" alt="" class="singer"></a> 
+                <div id="name3" class="singername">Justin Bieber</div>
+            </div>
+            <div id="top4" class="topsin">
+              <a href="" target="_blank"> <img src="../_image/singer/dualipa.jpg" alt="" class="singer"></a> 
+                <div id="name4" class="singername">Dua Lipa</div>
+            </div>
+
+            <div id="top5" class="topsin">
+             <a href="" target="_blank"><img src="../_image/singer/ariana.jpg" alt="" class="singer"></a> 
+                <div id="name5" class="singername">Ariana Grande</div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+ <div id="nav">
+        <div id="top10" class="navbar">
+       <div id="home">      <a href="../index.html" >Home</a></div>
+  
+        
+    
+     <div id="toplist">
+        
+           <div id="tit">    <p class="navtext" >Top 10</p>  <i class="fas fa-sort-down" id="sortdown"></i></div><div id="list"><div id="listsingle">   <a href="../top10single.html"  class="navtext_" >Single</a></div>
+                <div id="listsingle">
+                      <a href="../top10album.html" class="navtext_">Album</a>
+                </div></div> 
+                  
+         
+            
+
+            
+        </div>
+              </div>
+                   </div>
+    <div id="context" style="color: white">
+       
+        <div id="artmain">
+<!--
+           <div id="title"><h1>gay</h1></div>
+           <div id="author"><h2>韓國瑜</h2></div>
+-->
+           <div id="img1"><img src="1.png" alt=""></div>
+           <div id="title"><h1 style="color: #ffdedd;font-size: 30px;font-family: 微軟正黑體">金曲製造機Benny Blanco首推單曲《eastside》</h1></div>
+            <div class="art" id="paragraph1 "style="">
+               <p> &nbsp;&nbsp;&nbsp;&nbsp;Benny Blanco 本名 Benjamin Levin，是一名出生於維吉尼亞的猶太裔，在他很小的時候，就常常躲在房間裡面自己做 Beat 並配唱饒舌，並在 19 歲時，和朋友發行 EP，獲得 Kesha 經紀人 Dr. Luke 的注目，將他簽下，自從被簽下後，Benny 就跟著 Dr. Luke 一起學習音樂製作的技術和詞曲創作的技巧，並和 Dr. Luke 共寫了許多歌曲，像是 Katy Perry 的 Teenage Dream, Kesha 的 TikTok。</p>
+            </div>
+            <div class="art" id="paragraph2">
+          
+             
+            </div>
+           <div id="img2"><img src="2.jpg" alt=""></div>
+             <div id="title2"><h1 style="color: #ffdedd;font-size: 30px;font-family: 微軟正黑體">成為金牌製作人</h1></div>
+              <div class="art" id="paragraph3">
+             <p> &nbsp;&nbsp;&nbsp;&nbsp;在磨練三年後，Benny 首次以個人創作者身份，寫了多首熱門歌曲，例如： Maroon 5 的 Move Like A Jagger 和 Payphone，寫了越來越多爆紅歌曲，知名歌曲包括：Justin Bieber Love Yourself, Ed Sheeran Perfect 等。</p>
+     
+            </div>
+             <div id="img3"><img src="3.jpg" alt=""></div>
+            <div id="title3"><h1 style="color: #ffdedd;font-size: 30px;font-family: 微軟正黑體">首張個人單曲</h1></div>
+            <div class="art" id="paragraph4">
+                <p> &nbsp;&nbsp;&nbsp;&nbsp;在 2018 年，Benny 做了一項特別的事情，他開啟了自己的 Youtube 頻道，並且以自己的名字發表作品，第一首歌就是這首 Eastside，找來當今最紅的兩位 alternative RB 歌手 Halsey 和 Khalid 配唱，他負責音樂的製作，整首歌聽起來非常的舒服溫暖、乾淨，歌詞在寫的是關於人生不同階段對於愛情的看法和想法，並且回顧過去自己天真無邪的時候，告訴大家，或許人生就是這樣，我們總在不同階段擁有不同的目標、不同的追求、不同的心態，但最終回首，只剩下美好和回憶。</p>
+     
+            </div>
+            
+                
+          
+            </div>
+           
+        
+            <div class="app-cover" id="newlove">
+       
+        <div id="player">
+            <div id="player-track">
+                <div id="album-name"></div>
+                <div id="track-name"></div>
+                <div id="track-time">
+                    <div id="current-time"></div>
+                    <div id="track-length"></div>
+                </div>
+                <div id="s-area">
+                    <div id="ins-time"></div>
+                    <div id="s-hover"></div>
+                    <div id="seek-bar"></div>
+                </div>
+                </div>
+                <div id="player-content">
+                <div id="album-art">
+                    <img src="east.jpg" class="active" id="_1">
+                  
+                                     
+                    <div id="buffer-box">讀取中 ...</div>
+                </div>
+               <div id="player-controls">
+                    <div class="control">
+                        <div class="button" id="play-previous">
+                            <i class="fas fa-backward"></i>
+                        </div>
+                    </div>
+                    <div class="control">
+                        <div class="button" id="play-pause-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="control">
+                        <div class="button" id="play-next">
+                            <i class="fas fa-forward"></i>
+                        </div>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+        
+     </div>
+     </div>
+</body>
+
+</html>
